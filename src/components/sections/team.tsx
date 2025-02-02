@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const team = [
   {
@@ -49,10 +50,10 @@ const team = [
 
 export function TeamSection() {
   return (
-    <section className="w-full py-24 bg-black/50">
+    <section className="w-full py-12 md:py-24 bg-black/50">
       <div className="container px-4 md:px-6">
         <motion.div 
-          className="flex flex-col items-center gap-4 text-center mb-12"
+          className="flex flex-col items-center gap-4 text-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,7 +66,7 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -75,33 +76,48 @@ export function TeamSection() {
               viewport={{ once: true }}
             >
               <Card className="glass overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="aspect-square mb-4 overflow-hidden rounded-full">
+                <CardContent className="p-3 md:p-6">
+                  <div className="aspect-square mb-3 md:mb-4 overflow-hidden rounded-full w-[120px] md:w-[160px] mx-auto">
                     <Image
                       src={member.image}
                       alt={member.name}
-                      width={200}
-                      height={200}
+                      width={160}
+                      height={160}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{member.role}</p>
-                  <div className="flex gap-4 justify-center">
+                  <h3 className="text-lg md:text-xl font-bold">{member.name}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{member.role}</p>
+                  <div className="flex gap-3 md:gap-4 justify-center">
                     {member.links.github && (
-                      <a href={member.links.github} className="text-muted-foreground hover:text-primary">
-                        <Github className="w-5 h-5" />
-                      </a>
+                      <Link 
+                        href={member.links.github} 
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4 md:w-5 md:h-5" />
+                      </Link>
                     )}
                     {member.links.linkedin && (
-                      <a href={member.links.linkedin} className="text-muted-foreground hover:text-primary">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
+                      <Link 
+                        href={member.links.linkedin} 
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
+                      </Link>
                     )}
                     {member.links.email && (
-                      <a href={member.links.email} className="text-muted-foreground hover:text-primary">
-                        <Mail className="w-5 h-5" />
-                      </a>
+                      <Link 
+                        href={member.links.email} 
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Mail className="w-4 h-4 md:w-5 md:h-5" />
+                      </Link>
                     )}
                   </div>
                 </CardContent>

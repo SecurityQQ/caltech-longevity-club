@@ -3,10 +3,11 @@ import { WhoWeAreSection } from "@/components/sections/who-we-are";
 import { TeamSection } from "@/components/sections/team";
 import { FeaturesSectionWithBentoGrid } from "@/components/blocks/feature-section-with-bento-grid";
 import { NavBarDemo } from "@/components/NavBarDemo";
+import { Footer } from "@/components/Footer";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center">
       <NavBarDemo />
       <HeroSection />
       {/* <WhatWeDoSection /> */}
@@ -15,6 +16,7 @@ export default function Page() {
       {/* <TimelineSection /> */}
       {/* <GetInvolvedSection /> */}
       <TeamSection />
+      <Footer />
     </main>
   );
 }
