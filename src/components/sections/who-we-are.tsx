@@ -11,11 +11,9 @@ import { URLS } from "@/config/urls";
 export function WhoWeAreSection() {
   return (
     <section className="w-full">
-      <LampContainer color="orange">
-        <h1 className="bg-gradient-to-br from-orange-200 to-orange-400 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        <h1 className="bg-gradient-to-br from-[hsl(var(--orange-bright))] to-[hsl(var(--orange-deep))] py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
           Who We&apos;re Looking For
         </h1>
-      </LampContainer>
 
       <div className="container px-4 md:px-6">
         <motion.div 

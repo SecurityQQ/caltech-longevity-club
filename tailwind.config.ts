@@ -57,11 +57,16 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			orange: {
-  				bright: 'hsl(var(--orange-bright))',
-  				vivid: 'hsl(var(--orange-vivid))',
-  				deep: 'hsl(var(--orange-deep))',
-  				glow: 'hsl(var(--orange-glow))',
+  			wave: {
+  				'gray-100': 'hsl(var(--wave-gray-100))',
+  				'gray-200': 'hsl(var(--wave-gray-200))',
+  				'gray-300': 'hsl(var(--wave-gray-300))',
+  				'blue-deep': 'hsl(var(--wave-blue-deep))',
+  				'blue-electric': 'hsl(var(--wave-blue-electric))',
+  				'blue-bright': 'hsl(var(--wave-blue-bright))',
+  				'purple-deep': 'hsl(var(--wave-purple-deep))',
+  				'purple-rich': 'hsl(var(--wave-purple-rich))',
+  				'purple-bright': 'hsl(var(--wave-purple-bright))',
   			},
   		},
   		borderRadius: {
