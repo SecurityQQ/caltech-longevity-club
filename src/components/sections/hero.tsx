@@ -71,8 +71,8 @@ function VitaDAOLogo(props: { className?: string }) {
 const allLogos = [
   { name: "Caltech", id: 1, img: CaltechLogo },
   { name: "Brogevity", id: 2, img: BrogevityLogo },
-  { name: "Blueprint", id: 3, img: BlueprintLogo },
-  { name: "VitaDAO", id: 4, img: VitaDAOLogo },
+  // { name: "Blueprint", id: 3, img: BlueprintLogo },
+  // { name: "VitaDAO", id: 4, img: VitaDAOLogo },
 ];
 
 // Update the hero section text
