@@ -6,23 +6,23 @@ import { Brain, Network, Dna, Rocket } from "lucide-react";
 
 const features = [
   {
-    title: "Biohacking in Action",
-    description: "Explore cutting-edge longevity practices and technologies",
+    title: "Advanced Biohacking",
+    description: "Access cutting-edge longevity technologies and personalized aging interventions",
     icon: Brain,
   },
   {
-    title: "Industry Insights",
-    description: "Connect with leading scientists and entrepreneurs",
+    title: "Research Network",
+    description: "Connect with pioneering scientists and biotech entrepreneurs in aging research",
     icon: Network,
   },
   {
-    title: "Build & Collaborate",
-    description: "Work on innovative projects with like-minded individuals",
+    title: "Innovation Hub",
+    description: "Develop breakthrough longevity projects and anti-aging solutions",
     icon: Dna,
   },
   {
-    title: "Career Growth",
-    description: "Access exclusive opportunities in the longevity field",
+    title: "Career Launch",
+    description: "Fast-track your career in longevity biotechnology and aging research",
     icon: Rocket,
   },
 ];
@@ -33,10 +33,10 @@ export function WhatWeDoSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl header-text-glow">
-            What We Do
+            Advancing Longevity Science
           </h2>
           <p className="max-w-[700px] text-muted-foreground">
-            Empowering the next generation of longevity researchers and entrepreneurs
+            Empowering the next generation of longevity scientists and biotech innovators at Caltech
           </p>
         </div>
         

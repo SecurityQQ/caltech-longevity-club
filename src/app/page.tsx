@@ -23,17 +23,51 @@ export default function Page() {
 
 export const metadata = {
   title: 'Caltech Longevity Club',
-  description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential',
+  description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
+  metadataBase: new URL('https://caltechlongevity.org'),
+  keywords: ['Caltech', 'longevity', 'aging research', 'biotech', 'student club', 'science', 'innovation'],
   openGraph: {
-    title: 'Caltech Longevity Club',
-    description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential',
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://caltechlongevity.org',
+    title: 'Caltech Longevity Club - Exploring the Future of Human Potential',
+    description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
+    siteName: 'Caltech Longevity Club',
     images: [
       {
-        url: '/og-image.jpg', // Add your Open Graph image
+        url: '/seo/1200630.webp',
         width: 1200,
         height: 630,
-        alt: 'Caltech Longevity Club',
+        alt: 'Caltech Longevity Club - Advancing the Science of Aging',
+      },
+      {
+        url: '/seo/800800.webp',
+        width: 800,
+        height: 800,
+        alt: 'Caltech Longevity Club Logo',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Caltech Longevity Club',
+    description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
+    images: ['/seo/1200630.webp'],
+    creator: '@CaltechLongevity',
+    site: '@CaltechLongevity',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google verification code
   },
 };

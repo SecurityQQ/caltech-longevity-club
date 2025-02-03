@@ -96,44 +96,44 @@ export const SkeletonThree = () => {
       {/* Center Node - Make responsive */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <TextNode ref={centerRef} className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32" isCenter={true}>
-          <span className="text-lg sm:text-xl md:text-2xl">Your Growth</span>
+          <span className="text-lg sm:text-xl md:text-2xl">Longevity Impact</span>
         </TextNode>
       </div>
 
       {/* Surrounding Nodes - Adjust positions and sizes */}
       <div className="absolute left-[15%] sm:left-[20%] top-[8%] sm:top-[10%]">
         <TextNode ref={node1Ref} className="w-20 sm:w-24 md:w-28">
-          Bio Projects
+          Aging Research
         </TextNode>
       </div>
 
       <div className="absolute right-[15%] sm:right-[20%] top-[8%] sm:top-[10%]">
         <TextNode ref={node2Ref} className="w-24 sm:w-28 md:w-32">
-          Career Paths
+          Biotech Careers
         </TextNode>
       </div>
 
       <div className="absolute left-[5%] sm:left-[10%] top-1/2 -translate-y-1/2">
         <TextNode ref={node3Ref} className="w-24 sm:w-28 md:w-32">
-          Skill-Building
+          Research Skills
         </TextNode>
       </div>
 
       <div className="absolute right-[5%] sm:right-[10%] top-1/2 -translate-y-1/2">
         <TextNode ref={node4Ref} className="w-28 sm:w-32 md:w-36">
-          Expert Meetups
+          Industry Connect
         </TextNode>
       </div>
 
       <div className="absolute bottom-[8%] sm:bottom-[10%] left-[15%] sm:left-[20%]">
         <TextNode ref={node5Ref} className="w-28 sm:w-32 md:w-36">
-          Biohacking Lab
+          Innovation Lab
         </TextNode>
       </div>
 
       <div className="absolute bottom-[8%] sm:bottom-[10%] right-[15%] sm:right-[20%]">
         <TextNode ref={node6Ref} className="w-28 sm:w-32 md:w-36">
-          Network Growth
+          Global Network
         </TextNode>
       </div>
     </div>

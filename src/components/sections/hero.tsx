@@ -75,6 +75,14 @@ const allLogos = [
   { name: "VitaDAO", id: 4, img: VitaDAOLogo },
 ];
 
+// Update the hero section text
+const heroText = {
+  mainHeading: "CALTECH LONGEVITY CLUB",
+  subheading: "Join a pioneering network of Caltech students, scientists, and biotech leaders advancing human longevity research and innovation. Together, we're decoding aging and extending healthspan through cutting-edge science.",
+  trustedBy: "Partnered with leading longevity research institutions",
+  memberText: "Active members and growing",
+}
+
 export function HeroSection() {
   const avatars = [
     { src: "/avatars/1.png", alt: "Member 1" },
@@ -157,7 +165,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential
+              {heroText.subheading}
             </motion.p>
             
             {/* Updated Timer Component with deadline prop */}
@@ -182,7 +190,7 @@ export function HeroSection() {
               <Link href="https://atom-meteoroid-b7d.notion.site/12e33e38a36f808c80dcd1ddd0a1d2d9" target="_blank" rel="noopener noreferrer">
                 <Button 
                   size="lg" 
-                  className="gradient-button rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg w-full sm:w-auto"
+                  className="gradient-button rounded-full px-6 md:px-8 py-7 sm:py-5 md:py-6 text-base md:text-lg w-full sm:w-auto"
                 >
                   Join the Movement
                 </Button>
@@ -190,7 +198,7 @@ export function HeroSection() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="glass hover:bg-white/10 rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg w-full sm:w-auto"
+                className="glass hover:bg-white/10 rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg w-full sm:w-auto hidden sm:inline-flex"
                 onClick={handleLearnMore}
               >
                 Learn More
@@ -205,7 +213,7 @@ export function HeroSection() {
               className="mt-4 md:mt-6 pt-2 md:pt-4 border-t border-border w-full"
             >
               <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4 text-center">
-                Trusted by leading institutions
+                {heroText.trustedBy}
               </p>
               <div className="flex justify-center items-center w-full">
                 <LogoCarousel 

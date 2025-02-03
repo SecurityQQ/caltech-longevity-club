@@ -5,17 +5,17 @@ const jobs = [
     {
       title: "Longevity Scientist",
       color: "hsl(220, 70%, 50%)", // Bright blue
-      description: "Study aging and develop anti-aging therapies"
+      description: "Research cellular aging mechanisms and develop life-extension therapies"
     },
     {
-      title: "CRISPR Gene Engineer",
+      title: "CRISPR Engineer",
       color: "hsl(280, 65%, 60%)", // Purple
-      description: "Edit DNA to reverse aging and prevent disease"
+      description: "Develop genetic solutions for age-related diseases using CRISPR technology"
     },
     {
       title: "AI Biologist",
       color: "hsl(160, 60%, 45%)", // Teal
-      description: "Use AI to discover longevity drugs"
+      description: "Apply machine learning to discover novel longevity drug targets"
     },
     {
       title: "Stem Cell Expert",
@@ -103,7 +103,9 @@ export const SkeletonFour = () => {
           y="30%"
         >
           <div className="flex flex-col items-center gap-2">
-            <h2 className="handwritten-title">Is it your next job?</h2>
+            <h2 className="handwritten-title">
+              Explore Cutting-Edge Careers in Longevity Science
+            </h2>
             <div className="curvy-arrow" />
           </div>
         </MatterBody>
