@@ -8,6 +8,7 @@ import { SocialProof } from "@/components/ui/social-proof";
 import { DeadlineTimer } from "@/components/ui/deadline-timer";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wavy-background";
+import { useRouter } from 'next/navigation';
 
 // Logo components for the carousel
 function CaltechLogo(props: { className?: string }) {
@@ -82,6 +83,13 @@ export function HeroSection() {
     { src: "/avatars/4.png", alt: "Member 4" },
   ];
 
+  const router = useRouter();
+
+  const handleLearnMore = () => {
+    const featuresSection = document.getElementById('features');
+    featuresSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden gradient-dark pb-4 md:pb-8 pt-8 md:pt-16">
       {/* Smoke Effects */}
@@ -107,7 +115,7 @@ export function HeroSection() {
         }}
       />
       <WavyBackground 
-        className="max-w-4xl mx-auto pb-40 h-full"
+        className="max-w-4xl mx-auto h-full"
         containerClassName="h-full"
         colors={[
           "hsl(220 70% 30%)",     // Deep blue
@@ -183,6 +191,7 @@ export function HeroSection() {
                 size="lg" 
                 variant="outline" 
                 className="glass hover:bg-white/10 rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg w-full sm:w-auto"
+                onClick={handleLearnMore}
               >
                 Learn More
               </Button>

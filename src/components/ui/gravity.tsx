@@ -72,11 +72,11 @@ const commander = new SVGPathCommander(path);
 
 }
 
-function calculatePosition(
+const calculatePosition = (
   value: number | string | undefined,
   containerSize: number,
   elementSize: number
-) {
+) => {
   if (typeof value === "string" && value.endsWith("%")) {
     const percentage = parseFloat(value) / 100;
     return containerSize * percentage;
@@ -304,8 +304,10 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
 
       Common.setDecomp(require("poly-decomp"))
 
+      // Adjust gravity based on screen size
+      const isMobile = width < 640 // sm breakpoint
       engine.current.gravity.x = gravity.x
-      engine.current.gravity.y = gravity.y * 2
+      engine.current.gravity.y = gravity.y * (isMobile ? 1.5 : 2) // Increase gravity on mobile
 
       render.current = Render.create({
         element: canvas.current,
@@ -322,40 +324,40 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       mouseConstraint.current = MouseConstraint.create(engine.current, {
         mouse: mouse,
         constraint: {
-          stiffness: 0.2,
+          stiffness: isMobile ? 0.3 : 0.2, // Increase stiffness on mobile
           render: {
             visible: debug,
           },
         },
       })
 
-      // Modify wall properties for better bouncing
+      // Modify wall properties
       const walls = [
-        // Floor - increased friction and restitution
+        // Floor - increased friction for mobile
         Bodies.rectangle(width / 2, height + 10, width, 20, {
           isStatic: true,
-          friction: 0.8,
-          restitution: 0.2,
+          friction: isMobile ? 1 : 0.8,
+          restitution: isMobile ? 0.15 : 0.2,
           render: {
             visible: debug,
           },
         }),
 
-        // Right wall - angled slightly inward
-        Bodies.rectangle(width + 10, height / 2, 20, height, {
+        // Right wall - moved inward
+        Bodies.rectangle(width, height / 2, 20, height, {
           isStatic: true,
-          angle: -0.1,
-          friction: 0.5,
+          angle: isMobile ? -0.15 : -0.1,
+          friction: isMobile ? 0.6 : 0.5,
           render: {
             visible: debug,
           },
         }),
 
-        // Left wall - angled slightly inward
-        Bodies.rectangle(-10, height / 2, 20, height, {
+        // Left wall - moved inward
+        Bodies.rectangle(0, height / 2, 20, height, {
           isStatic: true,
-          angle: 0.1,
-          friction: 0.5,
+          angle: isMobile ? 0.15 : 0.1,
+          friction: isMobile ? 0.6 : 0.5,
           render: {
             visible: debug,
           },
@@ -365,7 +367,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       const topWall = addTopWall
         ? Bodies.rectangle(width / 2, -10, width, 20, {
             isStatic: true,
-            friction: 1,
+            friction: isMobile ? 1.2 : 1,
             render: {
               visible: debug,
             },
@@ -438,9 +440,10 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         const bodies = engine.current.world.bodies;
         bodies.forEach(body => {
           if (!body.isStatic) {
-            (body as any).centerOffset = { x: 0, y: 5 };
-            body.frictionAir = 0.02;
-            (body as any).angularDamping = 0.1;
+            const isMobile = window.innerWidth < 640;
+            (body as any).centerOffset = { x: 0, y: isMobile ? 3 : 5 };
+            body.frictionAir = isMobile ? 0.03 : 0.02;
+            (body as any).angularDamping = isMobile ? 0.15 : 0.1;
           }
         });
       });

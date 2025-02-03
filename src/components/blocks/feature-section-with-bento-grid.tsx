@@ -47,20 +47,20 @@ export function FeaturesSectionWithBentoGrid() {
   ];
 
   return (
-    <section className="w-full py-24 bg-black/50">
+    <section id="features" className="w-full py-12 bg-black/50">
       <div className="relative z-20 max-w-7xl mx-auto">
         <div className="px-8">
-          <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-bold header-text-glow">
+          <h4 className="text-4xl lg:text-6xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-bold header-text-glow mb-6">
             What We Do
           </h4>
 
-          <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-muted-foreground text-center">
+          <p className="text-base lg:text-lg max-w-2xl mx-auto text-center font-medium">
             Empowering the next generation of longevity researchers and entrepreneurs
           </p>
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-16 xl:border rounded-md dark:border-neutral-800">
             {features.map((feature) => (
               <FeatureCard key={feature.title} className={feature.className}>
                 <FeatureTitle>{feature.title}</FeatureTitle>
@@ -91,21 +91,15 @@ const FeatureCard = ({
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
+    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-left gradient-text">
       {children}
-    </p>
+    </h3>
   );
 };
 
 const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p
-      className={cn(
-        "text-sm md:text-base max-w-4xl text-left mx-auto",
-        "text-neutral-500 text-center font-normal dark:text-neutral-300",
-        "text-left max-w-sm mx-0 md:text-sm my-2"
-      )}
-    >
+    <p className="text-sm md:text-base text-left mt-2 mb-4 text-neutral-300 dark:text-neutral-300 font-medium leading-relaxed">
       {children}
     </p>
   );
