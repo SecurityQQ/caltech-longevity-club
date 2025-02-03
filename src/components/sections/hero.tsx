@@ -69,8 +69,8 @@ function VitaDAOLogo(props: { className?: string }) {
 
 // Logo configuration for the carousel
 const allLogos = [
-  { name: "Caltech", id: 1, img: CaltechLogo },
   { name: "Brogevity", id: 2, img: BrogevityLogo },
+  { name: "Caltech", id: 1, img: CaltechLogo },
   // { name: "Blueprint", id: 3, img: BlueprintLogo },
   // { name: "VitaDAO", id: 4, img: VitaDAOLogo },
 ];
