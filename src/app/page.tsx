@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://caltechlongevity.org',
+    // url: 'https://caltechlongevity.org',
     title: 'Caltech Longevity Club - Exploring the Future of Human Potential',
     description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
     siteName: 'Caltech Longevity Club',
