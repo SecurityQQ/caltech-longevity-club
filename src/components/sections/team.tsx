@@ -9,41 +9,69 @@ import Link from "next/link";
 const team = [
   {
     name: "Andrea Olsen",
-    role: "Founder",
-    image: "/team/andrea.png",
+    role: "President & Founder",
+    image: "/team/andrea-ai.webp",
     links: {
-      github: "#",
-      linkedin: "#",
-      email: "mailto:andrea@example.com",
+    //   github: "#",
+      linkedin: "https://www.linkedin.com/in/andrea-olsen-0987654321/",
+      email: "biohackingclub@caltech.edu",
     },
   },
   {
     name: "Anna Nazarova",
     role: "Co-founder",
-    image: "/team/anna.png",
+    image: "/team/anna-ai.webp",
     links: {
-      github: "#",
-      linkedin: "#",
-      email: "mailto:anna@example.com",
+    //   github: "#",
+      linkedin: "https://www.linkedin.com/in/anna-nazarova-a214b9122/",
+      email: "hello@brogevity.com",
     },
   },
   {
     name: "Alex Varga",
     role: "Co-founder",
-    image: "/team/alex.png",
+    image: "/team/alex-ai.webp",
     links: {
-      github: "#",
-      linkedin: "#",
-      email: "mailto:alex@example.com",
+      github: "https://github.com/securityqq",
+      linkedin: "https://www.linkedin.com/in/alexmsecurity/",
+      email: "https://alexvarga.xyz",
+    //   email: "mailto:alex@example.com",
     },
   },
   {
     name: "Ralph Adolphs",
     role: "Advisor",
-    image: "/team/ralph.jpeg",
+    image: "/team/ralph-ai.webp",
     links: {
       linkedin: "#",
       email: "mailto:ralph@example.com",
+    },
+  },
+  {
+    name: "Ania Freymond",
+    role: "Volunteer",
+    image: "/team/ania-ai.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/ania-freymond/",
+    //   email: "mailto:ralph@example.com",
+    },
+  },
+//   {
+//     name: "Avni Bansal",
+//     role: "Volunteer",
+//     image: "/team/ralph.jpeg",
+//     links: {
+//       linkedin: "https://www.linkedin.com/in/avni-bansal-522b1a284/",
+//     //   email: "mailto:ralph@example.com",
+//     },
+//   }
+  {
+    name: "Elvira Koliadina",
+    role: "Project Manager",
+    image: "/team/elvira-ai.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/elvira-koliadina-0a0a1b232/",
+    //   email: "mailto:ralph@example.com",
     },
   },
 ];

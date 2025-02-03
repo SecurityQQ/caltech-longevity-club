@@ -40,7 +40,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-background/90 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center gap-1 md:gap-3 bg-background/90 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -57,7 +57,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 setActiveTab(item.name);
               }}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-all duration-300",
+                "relative cursor-pointer text-sm font-semibold px-3 md:px-6 py-2 rounded-full transition-all duration-300",
                 "text-foreground/80 hover:text-primary bg-background flex items-center gap-2",
                 isActive && "bg-muted text-primary",
                 item.disabled && "opacity-50 cursor-not-allowed hover:text-foreground/80",
@@ -65,8 +65,12 @@ export function NavBar({ items, className }: NavBarProps) {
               )}
             >
               <Icon size={18} strokeWidth={2} />
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">{item.name}</span>
+              {(item.isCTA || !isMobile) && (
+                <span className="hidden md:inline">{item.name}</span>
+              )}
+              {(item.isCTA) && (
+                <span className="md:hidden">{item.name}</span>
+              )}
               {isActive && (
                 <motion.div
                   layoutId="lamp"
