@@ -371,7 +371,7 @@
 /* Enhanced glass effect */
 .glass-card {
   @apply bg-black/20 backdrop-blur-sm border border-white/10 
-         shadow-[0_8px_16px_rgb(0_0_0/0.4)] hover:shadow-[0_12px_24px_rgb(0_0_0/0.4)]
+         shadow-[0_4px_8px_rgb(0_0_0/0.3)] hover:shadow-[0_8px_16px_rgb(0_0_0/0.3)]
          transition-all duration-300;
 }
 
@@ -379,18 +379,23 @@
 .header-text-glow {
   @apply text-[hsl(var(--orange-bright))] relative;
   text-shadow: 
-    0 0 30px hsl(var(--orange-glow) / 0.3),
-    0 0 60px hsl(var(--orange-glow) / 0.2),
-    0 0 100px hsl(var(--orange-glow) / 0.1);
+    0 0 20px hsl(var(--orange-glow) / 0.2),
+    0 0 40px hsl(var(--orange-glow) / 0.1);
   animation: textPulse 4s ease-in-out infinite;
 }
 
 @keyframes textPulse {
   0%, 100% {
     color: hsl(var(--orange-bright));
+    text-shadow: 
+      0 0 20px hsl(var(--orange-glow) / 0.2),
+      0 0 40px hsl(var(--orange-glow) / 0.1);
   }
   50% {
     color: hsl(var(--orange-vivid));
+    text-shadow: 
+      0 0 30px hsl(var(--orange-glow) / 0.3),
+      0 0 60px hsl(var(--orange-glow) / 0.2);
   }
 }
 
@@ -448,4 +453,23 @@
   transform: rotate(0deg);
   animation: float-subtle 3s ease-in-out infinite;
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Add responsive text utilities */
+@layer utilities {
+  .text-responsive-xs {
+    @apply text-xs xs:text-sm sm:text-base;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm xs:text-base sm:text-lg;
+  }
+  
+  .text-responsive-base {
+    @apply text-base xs:text-lg sm:text-xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg xs:text-xl sm:text-2xl;
+  }
 }
