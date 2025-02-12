@@ -50,7 +50,7 @@ const team = [
   },
   {
     name: "Ania Freymond",
-    role: "Volunteer",
+    role: "Vice President",
     image: "/team/ania-ai.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/ania-freymond/",
@@ -68,7 +68,7 @@ const team = [
 //   }
   {
     name: "Elvira Koliadina",
-    role: "Project Manager",
+    role: "Events Organizer",
     image: "/team/elvira-ai.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/elvira-koliadina-0a0a1b232/",
