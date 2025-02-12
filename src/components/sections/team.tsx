@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CONTACT_EMAIL } from "@/lib/constants";
 
 const team = [
   {
@@ -14,7 +15,7 @@ const team = [
     links: {
     //   github: "#",
       linkedin: "https://www.linkedin.com/in/andrea-olsen-0987654321/",
-      email: "biohackingclub@caltech.edu",
+      email: CONTACT_EMAIL,
     },
   },
   {
@@ -43,8 +44,8 @@ const team = [
     role: "Advisor",
     image: "/team/ralph-ai.webp",
     links: {
-      linkedin: "#",
-      email: "mailto:ralph@example.com",
+      linkedin: "https://www.linkedin.com/in/ralph-adolphs-658a5417/",
+      // email: "mailto:ralph@example.com",
     },
   },
   {

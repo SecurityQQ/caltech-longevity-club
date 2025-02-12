@@ -125,15 +125,9 @@ export function HeroSection() {
       <WavyBackground 
         className="max-w-4xl mx-auto h-full"
         containerClassName="h-full"
-        colors={[
-          "hsl(220 70% 30%)",     // Deep blue
-          "hsl(210 100% 50%)",    // Electric blue
-          "hsl(190 100% 60%)",    // Bright cyan-blue
-          "hsl(210 100% 50%)",    // Electric blue again
-          "hsl(190 100% 60%)",    // Bright cyan-blue again
-        ]}
+        
         waveOpacity={0.3}
-        blur={3}
+        blur={5}
         speed="slow"
         waveWidth={40}
       >
@@ -160,7 +154,7 @@ export function HeroSection() {
           
             {/* Subheading - reduced padding */}
             <motion.p 
-              className="max-w-[700px] text-base md:text-lg text-muted-foreground font-light px-2"
+              className="max-w-[700px] text-base md:text-lg text-secondary-foreground font-light px-2 py-4 rounded-xl bg-gradient-to-b from-black/50 to-transparent backdrop-blur-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -169,13 +163,13 @@ export function HeroSection() {
             </motion.p>
             
             {/* Updated Timer Component with deadline prop */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <DeadlineTimer deadline="2025-02-25T23:59:59" />
-            </motion.div>
+            </motion.div> */}
             
             {/* Social Proof */}
             <SocialProof avatars={avatars} memberCount={60} />

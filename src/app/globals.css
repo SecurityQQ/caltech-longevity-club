@@ -64,6 +64,13 @@
     --wave-purple-deep: 270 60% 25%;
     --wave-purple-rich: 280 70% 45%;
     --wave-purple-bright: 290 80% 65%;
+    
+    /* New neon green wave variables */
+    --wave-neon-green-bright: 150 100% 60%;
+    --wave-neon-green-pure: 140 100% 50%;
+    --wave-neon-green-dark: 160 100% 45%;
+    --wave-neon-green-lime: 130 100% 55%;
+    --wave-neon-green-teal: 170 100% 40%;
   }
   .dark {
     --background: 240 10% 3.9%;

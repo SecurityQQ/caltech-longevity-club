@@ -42,7 +42,7 @@ export function DeadlineTimer({ deadline }: DeadlineTimerProps) {
 
   return (
     <div className="flex flex-col items-center space-y-2">
-      <div className="text-sm text-muted-foreground">Applications close in:</div>
+      <div className="text-sm text-accent-foreground">Applications close in:</div>
       <div className="flex gap-4 text-center">
         {Object.entries(timeLeft).map(([unit, value]) => (
           <div key={unit} className="flex flex-col">

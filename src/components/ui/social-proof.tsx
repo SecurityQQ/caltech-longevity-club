@@ -37,7 +37,7 @@ export function SocialProof({ avatars, memberCount, className }: SocialProofProp
           {memberCount}+
         </div>
       </div>
-      <p className="text-sm text-muted-foreground pr-2">
+      <p className="text-sm text-secondary-foreground pr-2">
         Join our growing community
       </p>
     </motion.div>

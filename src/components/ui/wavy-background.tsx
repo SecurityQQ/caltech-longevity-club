@@ -8,11 +8,11 @@ export const WavyBackground = ({
   className,
   containerClassName,
   colors,
-  waveWidth,
+  waveWidth = 100,
   backgroundFill,
-  blur = 10,
+  blur = 30,
   speed = "fast",
-  waveOpacity = 0.3,
+  waveOpacity = 0.6,
   ...props
 }: {
   children?: any;
@@ -35,6 +35,16 @@ export const WavyBackground = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const waveColors = colors ?? [
+    "hsl(110 100% 60%)",  
+    "hsl(130 100% 65%)",  
+    "hsl(140 100% 70%)",  
+    "hsl(120 100% 75%)",  
+    "hsl(150 100% 80%)",  
+  ];
+  
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -61,13 +71,6 @@ export const WavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
-    "hsl(var(--orange-bright))",
-    "hsl(var(--orange-vivid))",
-    "hsl(var(--orange-deep))",
-    "hsl(var(--orange-glow))",
-    "hsl(var(--secondary))",
-  ];
   const drawWave = (n: number) => {
     nt += getSpeed();
     
@@ -75,8 +78,7 @@ export const WavyBackground = ({
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
-      // Adjust opacity for each wave individually
-      ctx.globalAlpha = waveOpacity * (1 - (i * 0.1));
+      ctx.globalAlpha = Math.max(0.5, waveOpacity * (1 - (i * 0.1)));
       
       for (x = 0; x < w; x += 5) {
         var y = noise(x / 800, 0.3 * i, nt) * 100;

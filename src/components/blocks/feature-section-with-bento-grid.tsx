@@ -17,7 +17,7 @@ export function FeaturesSectionWithBentoGrid() {
     {
       title: "Longevity in Action",
       description:
-        "Explore longevity practices and technologies through hands-on research projects and experimental protocols",
+        "Explore longevity practices and technologies through theoretical research and analytical studies",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
