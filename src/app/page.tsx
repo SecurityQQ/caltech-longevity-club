@@ -24,12 +24,12 @@ export default function Page() {
 export const metadata = {
   title: 'Caltech Longevity Club',
   description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
-  // metadataBase: new URL('https://caltechlongevity.org'), ?
+  metadataBase: new URL('https://caltechlongevity.com'),
   keywords: ['Caltech', 'longevity', 'aging research', 'biotech', 'student club', 'science', 'innovation'],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    // url: 'https://caltechlongevity.org',
+    url: 'https://caltechlongevity.com',
     title: 'Caltech Longevity Club - Exploring the Future of Human Potential',
     description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
     siteName: 'Caltech Longevity Club',
@@ -53,8 +53,8 @@ export const metadata = {
     title: 'Caltech Longevity Club',
     description: 'Join a network of driven students, scientists, and industry leaders exploring the frontiers of human potential. Discover cutting-edge longevity research and innovations at Caltech.',
     images: ['/seo/1200630.webp'],
-    // creator: '@CaltechLongevity', ?
-    // site: '@CaltechLongevity', ?
+    creator: '@CaltechLongevity',
+    site: '@CaltechLongevity',
   },
   robots: {
     index: true,
