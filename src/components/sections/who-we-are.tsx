@@ -7,6 +7,7 @@ import { GraduationCap, Building2 } from "lucide-react";
 import { LampContainer } from "@/components/ui/lamp";
 import Link from "next/link";
 import { URLS } from "@/config/urls";
+import { SponsorFormDialog } from "@/components/forms/sponsor-form-dialog";
 
 export function WhoWeAreSection() {
   return (
@@ -63,11 +64,7 @@ export function WhoWeAreSection() {
                 <p className="text-muted-foreground">
                   Connect with top-tier talent and support the future of longevity research
                 </p>
-                <Button variant="outline" className="mt-4" asChild>
-                  <Link href={URLS.NOTION_SIGNUP} target="_blank" rel="noopener noreferrer">
-                    Become a Sponsor
-                  </Link>
-                </Button>
+                <SponsorFormDialog />
               </CardContent>
             </Card>
           </motion.div>

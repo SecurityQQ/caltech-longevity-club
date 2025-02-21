@@ -53,19 +53,17 @@ const team = [
     role: "Vice President",
     image: "/team/ania-ai.webp",
     links: {
-      linkedin: "https://www.linkedin.com/in/ania-freymond/",
-    //   email: "mailto:ralph@example.com",
+      linkedin: "https://www.linkedin.com/in/ania-freymond/"
     },
   },
-//   {
-//     name: "Avni Bansal",
-//     role: "Volunteer",
-//     image: "/team/ralph.jpeg",
-//     links: {
-//       linkedin: "https://www.linkedin.com/in/avni-bansal-522b1a284/",
-//     //   email: "mailto:ralph@example.com",
-//     },
-//   }
+  {
+    name: "Emily Gu",
+    role: "Treasurer",
+    image: "/team/emily-gu-ai.webp",
+    links: {
+      github: "https://github.com/emily5-1-2"
+    },
+  },
   {
     name: "Elvira Koliadina",
     role: "Events Organizer",

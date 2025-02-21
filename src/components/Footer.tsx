@@ -14,6 +14,15 @@ export function Footer() {
           </Link>
           <span className="text-muted-foreground">•</span>
           <Link 
+            href="https://x.com/cit_longevity"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-muted-foreground/80 transition-colors"
+          >
+            X (Twitter)
+          </Link>
+          <span className="text-muted-foreground">•</span>
+          <Link 
             href="https://www.instagram.com/caltechlongevity"
             target="_blank"
             rel="noopener noreferrer"

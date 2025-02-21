@@ -9,6 +9,8 @@ import { DeadlineTimer } from "@/components/ui/deadline-timer";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wavy-background";
 import { useRouter } from 'next/navigation';
+import { getEvents } from "@/data/events";
+import { HeroPill } from "@/components/ui/hero-pill";
 
 // Logo components for the carousel
 function CaltechLogo(props: { className?: string }) {
@@ -83,6 +85,22 @@ const heroText = {
   memberText: "Active members and growing",
 }
 
+// Add this helper function at the top of the file
+function getDaysUntil(dateStr: string | null): string {
+  if (!dateStr) return '📅 Date TBA';
+  
+  const eventDate = new Date(dateStr);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const diffTime = eventDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 0) return '📅 Today!';
+  if (diffDays === 1) return '📅 Tomorrow!';
+  return `📅 In ${diffDays} days`;
+}
+
 export function HeroSection() {
   const avatars = [
     { src: "/avatars/1.png", alt: "Member 1" },
@@ -92,6 +110,9 @@ export function HeroSection() {
   ];
 
   const router = useRouter();
+
+  const { upcoming: upcomingEvents } = getEvents();
+  const nextEvent = upcomingEvents[0]; // First event is the next one due to our sorting
 
   const handleLearnMore = () => {
     const featuresSection = document.getElementById('features');
@@ -133,6 +154,22 @@ export function HeroSection() {
       >
         <div className="container pt-4 px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center gap-4 text-center">
+            {/* Add Hero Pill here */}
+            {nextEvent && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <HeroPill 
+                  href="/events"
+                  label={`${nextEvent.topic}`}
+                  announcement={getDaysUntil(nextEvent.date)}
+                  className="mb-4"
+                />
+              </motion.div>
+            )}
+
             {/* Main heading - reduced vertical spacing */}
             <div className="space-y-1 md:space-y-2">
               <motion.h1 

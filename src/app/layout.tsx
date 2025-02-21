@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { JetBrains_Mono as FontMono } from "next/font/google";
 import "./globals.css";
+import { NavBarDemo } from "@/components/NavBarDemo";
+import { Footer } from "@/components/Footer";
+import { Toaster } from "sonner";
 
 // Initialize fonts
 const fontSans = FontSans({
@@ -27,7 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
+        <NavBarDemo />
         {children}
+        <Footer />
+        <Toaster />
       </body>
     </html>
   );

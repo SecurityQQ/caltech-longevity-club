@@ -8,15 +8,10 @@ import { Footer } from "@/components/Footer";
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center pb-16 sm:pb-0">
-      <NavBarDemo />
       <HeroSection />
-      {/* <WhatWeDoSection /> */}
       <FeaturesSectionWithBentoGrid />
       <WhoWeAreSection />
-      {/* <TimelineSection /> */}
-      {/* <GetInvolvedSection /> */}
       <TeamSection />
-      <Footer />
     </main>
   );
 }
