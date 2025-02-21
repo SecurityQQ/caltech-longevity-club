@@ -11,7 +11,7 @@ export interface EventSpeaker {
 
 export interface Event {
   id: string;
-  speaker: EventSpeaker;
+  speakers: EventSpeaker[];
   topic: string;
   date: string | null;
   time: string;

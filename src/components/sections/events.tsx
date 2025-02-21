@@ -7,52 +7,8 @@ import { Calendar, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wavy-background";
-
-// Event type definition
-type Event = {
-  name: string;
-  title: string;
-  social: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-  };
-  topic: string;
-  photo: string;
-  date: string;
-  time: string;
-  location: string;
-  isUpcoming: boolean;
-};
-
-const events: Event[] = [
-  {
-    name: "Ryan Cabeen",
-    title: "CTO Blueprint Bryan Johnson",
-    social: {
-      linkedin: "https://www.linkedin.com/in/cabeen/",
-    },
-    topic: "Grand Opening Event: AI, Biotech & Longevity",
-    photo: "https://drive.google.com/file/d/1zr5QXlfWPHG8xhEURLes_NT4FLCSPZSd/view?usp=sharing",
-    date: "February 27, 2024",
-    time: "4:30 PM",
-    location: "Dabney Hall",
-    isUpcoming: false,
-  },
-  {
-    name: "Christin Glorioso",
-    title: "Co-founder & CEO NeuroAgeTX, Former MIT scientist",
-    social: {
-      linkedin: "#",
-    },
-    topic: "Brain Rejuvenation",
-    photo: "https://drive.google.com/file/d/1mmbaTtGIJBJH5vtezyn95KIi15bvKN3s/view?usp=sharing",
-    date: "To be announced",
-    time: "To be announced",
-    location: "To be announced",
-    isUpcoming: true,
-  },
-];
+import type { Event, EventSpeaker } from "@/types/events";
+import { getEvents } from "@/data/events";
 
 function EventCard({ event }: { event: Event }) {
   return (
@@ -60,24 +16,32 @@ function EventCard({ event }: { event: Event }) {
       <CardContent className="p-6">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-1/3">
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src={event.photo}
-                alt={event.name}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full"
-              />
-            </div>
+            {event.speaker?.photo && (
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <Image
+                  src={event.speaker.photo}
+                  alt={event.speaker.name || 'Event'}
+                  width={300}
+                  height={300}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            )}
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-2">{event.name}</h3>
-            <p className="text-muted-foreground mb-4">{event.title}</p>
+            {event.speaker ? (
+              <>
+                <h3 className="text-2xl font-bold mb-2">{event.speaker.name}</h3>
+                <p className="text-muted-foreground mb-4">{event.speaker.title}</p>
+              </>
+            ) : (
+              <h3 className="text-2xl font-bold mb-2">No Speaker</h3>
+            )}
             <h4 className="text-xl font-semibold mb-4">{event.topic}</h4>
             
             <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <Calendar className="w-4 h-4" />
-              <span>{event.date} at {event.time}</span>
+              <span>{event.date || "TBA"} at {event.time}</span>
             </div>
             
             <div className="flex items-center gap-2 text-muted-foreground mb-4">
@@ -85,23 +49,25 @@ function EventCard({ event }: { event: Event }) {
               <span>{event.location}</span>
             </div>
             
-            <div className="flex gap-4">
-              {event.social.linkedin && (
-                <Link href={event.social.linkedin} className="text-muted-foreground hover:text-primary">
-                  <Linkedin className="w-5 h-5" />
-                </Link>
-              )}
-              {event.social.twitter && (
-                <Link href={event.social.twitter} className="text-muted-foreground hover:text-primary">
-                  <Twitter className="w-5 h-5" />
-                </Link>
-              )}
-              {event.social.github && (
-                <Link href={event.social.github} className="text-muted-foreground hover:text-primary">
-                  <Github className="w-5 h-5" />
-                </Link>
-              )}
-            </div>
+            {event.speaker && (
+              <div className="flex gap-4">
+                {event.speaker.social.linkedin && (
+                  <Link href={event.speaker.social.linkedin} className="text-muted-foreground hover:text-primary">
+                    <Linkedin className="w-5 h-5" />
+                  </Link>
+                )}
+                {event.speaker.social.twitter && (
+                  <Link href={event.speaker.social.twitter} className="text-muted-foreground hover:text-primary">
+                    <Twitter className="w-5 h-5" />
+                  </Link>
+                )}
+                {event.speaker.social.github && (
+                  <Link href={event.speaker.social.github} className="text-muted-foreground hover:text-primary">
+                    <Github className="w-5 h-5" />
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </CardContent>
@@ -110,8 +76,7 @@ function EventCard({ event }: { event: Event }) {
 }
 
 export function EventsSection() {
-  const upcomingEvents = events.filter(event => event.isUpcoming);
-  const pastEvents = events.filter(event => !event.isUpcoming);
+  const { upcoming: upcomingEvents, past: pastEvents } = getEvents();
 
   return (
     <section className="w-full py-12 md:py-24">

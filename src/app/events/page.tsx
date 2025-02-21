@@ -13,6 +13,8 @@ import { Event } from "@/types/events";
 import { getEvents } from "@/data/events";
 import { HeroPill } from "@/components/ui/hero-pill";
 
+const DEFAULT_SPEAKER_IMAGE = "/events/default.png";
+
 function EventCard({ event }: { event: Event }) {
   return (
     <Card className="glass overflow-hidden">
@@ -21,8 +23,8 @@ function EventCard({ event }: { event: Event }) {
           <div className="w-full md:w-1/3">
             <div className="aspect-square rounded-lg overflow-hidden">
               <Image
-                src={event.speaker.photo}
-                alt={event.speaker.name}
+                src={event.speakers[0]?.photo || DEFAULT_SPEAKER_IMAGE}
+                alt={event.speakers[0]?.name || event.topic}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full"
@@ -30,51 +32,61 @@ function EventCard({ event }: { event: Event }) {
             </div>
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-2">{event.speaker.name}</h3>
-            <p className="text-muted-foreground mb-4">{event.speaker.title}</p>
-            <h4 className="text-xl font-semibold mb-4">{event.topic}</h4>
+            {event.speakers.length > 0 ? (
+              <>
+                {event.speakers.map((speaker, index) => (
+                  <div key={index} className={index > 0 ? 'mt-4' : ''}>
+                    <h3 className="text-2xl font-bold mb-2">{speaker.name}</h3>
+                    <p className="text-muted-foreground mb-4">{speaker.title}</p>
+                    
+                    <div className="flex gap-4">
+                      {speaker.social.linkedin && (
+                        <Link 
+                          href={speaker.social.linkedin} 
+                          className="text-muted-foreground hover:text-primary"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </Link>
+                      )}
+                      {speaker.social.twitter && (
+                        <Link 
+                          href={speaker.social.twitter} 
+                          className="text-muted-foreground hover:text-primary"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <X className="w-5 h-5" />
+                        </Link>
+                      )}
+                      {speaker.social.github && (
+                        <Link 
+                          href={speaker.social.github} 
+                          className="text-muted-foreground hover:text-primary"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <GithubIcon className="w-5 h-5" />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                <h4 className="text-xl font-semibold mb-4 mt-4">{event.topic}</h4>
+              </>
+            ) : (
+              <h3 className="text-2xl font-bold mb-4">{event.topic}</h3>
+            )}
             
             <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <Calendar className="w-4 h-4" />
-              <span>{event.date} at {event.time}</span>
+              <span>{event.date || "TBA"} at {event.time}</span>
             </div>
             
             <div className="flex items-center gap-2 text-muted-foreground mb-4">
               <MapPin className="w-4 h-4" />
               <span>{event.location}</span>
-            </div>
-            
-            <div className="flex gap-4">
-              {event.speaker.social.linkedin && (
-                <Link 
-                  href={event.speaker.social.linkedin} 
-                  className="text-muted-foreground hover:text-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Link>
-              )}
-              {event.speaker.social.twitter && (
-                <Link 
-                  href={event.speaker.social.twitter} 
-                  className="text-muted-foreground hover:text-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <X className="w-5 h-5" />
-                </Link>
-              )}
-              {event.speaker.social.github && (
-                <Link 
-                  href={event.speaker.social.github} 
-                  className="text-muted-foreground hover:text-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubIcon className="w-5 h-5" />
-                </Link>
-              )}
             </div>
           </div>
         </div>
