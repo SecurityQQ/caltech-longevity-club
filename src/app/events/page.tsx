@@ -15,6 +15,21 @@ import { HeroPill } from "@/components/ui/hero-pill";
 
 const DEFAULT_SPEAKER_IMAGE = "/events/default.png";
 
+function getDaysUntil(dateStr: string | null): string {
+  if (!dateStr) return '📅 Date TBA';
+  
+  const eventDate = new Date(dateStr);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const diffTime = eventDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 0) return '📅 Today!';
+  if (diffDays === 1) return '📅 Tomorrow!';
+  return `📅 In ${diffDays} days`;
+}
+
 function EventCard({ event }: { event: Event }) {
   return (
     <Card className="glass overflow-hidden">
@@ -103,16 +118,20 @@ export default function EventsPage() {
     <main className="flex min-h-screen flex-col">
       <section className="flex-1 w-full py-12 md:py-24">
         <WavyBackground className="max-w-4xl mx-auto">
-          <div className="container px-4 md:px-6">
+          <div className="container px-0 md:px-6">
             {nextEvent && (
-              <div className="flex justify-center mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex justify-center mb-8"
+              >
                 <HeroPill 
                   href={`#event-${nextEvent.id}`}
                   label={nextEvent.topic}
-                  announcement="📅 Next Event"
-                  className="bg-primary/20 ring-primary/20"
+                  announcement={getDaysUntil(nextEvent.date)}
                 />
-              </div>
+              </motion.div>
             )}
             
             <motion.div 
