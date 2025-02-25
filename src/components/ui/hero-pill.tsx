@@ -6,7 +6,8 @@ interface HeroPillProps {
   label: string
   announcement?: string
   className?: string
-  isExternal?: boolean
+  target?: string
+  rel?: string
 }
 
 export function HeroPill({ 
@@ -14,12 +15,14 @@ export function HeroPill({
   label, 
   announcement = "📣 Announcement",
   className,
-  isExternal = false,
+  target,
+  rel,
 }: HeroPillProps) {
   return (
     <motion.a
       href={href}
-      target={isExternal ? "_blank" : undefined}
+      target={target}
+      rel={rel}
       className={cn(
         "flex w-auto items-center space-x-2 rounded-full",
         "bg-primary/20 ring-1 ring-accent",
