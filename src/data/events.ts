@@ -30,8 +30,8 @@ export const events: Event[] = [
     }],
     topic: "Brain Rejuvenation",
     date: "2025-03-05",
-    time: "To be announced",
-    location: "To be announced",
+    time: "4:30 PM",
+    location: "Hameetman Conference Room",
     isUpcoming: true,
   },
   {
