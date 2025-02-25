@@ -17,4 +17,5 @@ export interface Event {
   time: string;
   location: string;
   isUpcoming: boolean;
+  url?: string;
 } 

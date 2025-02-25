@@ -12,6 +12,7 @@ import { events } from "@/data/events";
 import { Event } from "@/types/events";
 import { getEvents } from "@/data/events";
 import { HeroPill } from "@/components/ui/hero-pill";
+import { Button } from "@/components/ui/button";
 
 const DEFAULT_SPEAKER_IMAGE = "/events/default.png";
 
@@ -103,6 +104,25 @@ function EventCard({ event }: { event: Event }) {
               <MapPin className="w-4 h-4" />
               <span>{event.location}</span>
             </div>
+
+            {event.url && (
+              <Button
+                asChild
+                className="mt-4 bg-[hsl(var(--orange-bright))] hover:bg-[hsl(var(--orange-vivid))] text-white 
+                           shadow-[0_0_15px_rgba(255,107,0,0.3)] hover:shadow-[0_0_20px_rgba(255,107,0,0.5)]
+                           border border-[hsl(var(--orange-bright))/0.2] transition-all duration-300"
+              >
+                <Link 
+                  href={event.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  RSVP Now
+                  <span className="text-sm">→</span>
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>
@@ -127,9 +147,11 @@ export default function EventsPage() {
                 className="flex justify-center mb-8"
               >
                 <HeroPill 
-                  href={`#event-${nextEvent.id}`}
+                  href={nextEvent.url || `#event-${nextEvent.id}`}
                   label={nextEvent.topic}
                   announcement={getDaysUntil(nextEvent.date)}
+                  target={nextEvent.url ? "_blank" : undefined}
+                  rel={nextEvent.url ? "noopener noreferrer" : undefined}
                 />
               </motion.div>
             )}

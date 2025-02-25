@@ -16,6 +16,7 @@ export const events: Event[] = [
     time: "4:30 PM",
     location: "Dabney Hall Lounge",
     isUpcoming: false,
+    url: "https://lu.ma/ebvvob6v"
   },
   {
     id: "event-2", 

@@ -162,9 +162,11 @@ export function HeroSection() {
                 transition={{ duration: 0.5 }}
               >
                 <HeroPill 
-                  href="/events"
-                  label={`${nextEvent.topic}`}
+                  href={nextEvent.url || "/events"}
+                  label={nextEvent.topic}
                   announcement={getDaysUntil(nextEvent.date)}
+                  target={nextEvent.url ? "_blank" : undefined}
+                  rel={nextEvent.url ? "noopener noreferrer" : undefined}
                   className="mb-4"
                 />
               </motion.div>
