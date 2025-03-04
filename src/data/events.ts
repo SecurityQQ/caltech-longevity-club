@@ -21,17 +21,17 @@ export const events: Event[] = [
   {
     id: "event-2", 
     speakers: [{
-      name: "Christin Glorioso",
-      title: "Co-founder & CEO NeuroAgeTX, Former MIT scientist",
+      name: "Matt Scholz",
+      title: "CEO of Oisin Biotechnologies, 15+ years biotech executive experience",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/matthewscholz/",
       },
-      photo: "/events/Christin Glorioso.jpg",
+      photo: "/events/Matt Scholz.jpg",
     }],
-    topic: "Brain Rejuvenation",
-    date: "2025-03-05",
-    time: "4:30 PM",
-    location: "Hameetman Conference Room",
+    topic: "Developed first engineered B cell therapy to enter human trials",
+    date: "2025-03-08",
+    time: "5:00 PM",
+    location: "Dabney Hall Lounge",
     isUpcoming: true,
   },
   {
