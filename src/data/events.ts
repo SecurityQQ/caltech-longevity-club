@@ -28,7 +28,7 @@ export const events: Event[] = [
       },
       photo: "/events/Matt Scholz.jpg",
     }],
-    topic: "Developed first engineered B cell therapy to enter human trials",
+    topic: "B cell therapy",
     date: "2025-03-08",
     time: "5:00 PM",
     location: "Dabney Hall Lounge",
