@@ -32,7 +32,7 @@ export const events: Event[] = [
     date: "2025-03-08",
     time: "5:00 PM",
     location: "Dabney Hall Lounge",
-    isUpcoming: true,
+    isUpcoming: false,
   },
   {
     id: "event-3",
