@@ -155,22 +155,20 @@ export function HeroSection() {
         <div className="container pt-4 px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center gap-4 text-center">
             {/* Add Hero Pill here */}
-            {nextEvent && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <HeroPill 
-                  href={nextEvent.url || "/events"}
-                  label={nextEvent.topic}
-                  announcement={getDaysUntil(nextEvent.date)}
-                  target={nextEvent.url ? "_blank" : undefined}
-                  rel={nextEvent.url ? "noopener noreferrer" : undefined}
-                  className="mb-4"
-                />
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <HeroPill 
+                href={nextEvent ? (nextEvent.url || "/events") : "/events"}
+                label={nextEvent ? nextEvent.topic : "Explore our events"}
+                announcement={nextEvent ? getDaysUntil(nextEvent.date) : "📅 Explore our events"}
+                target={nextEvent?.url ? "_blank" : undefined}
+                rel={nextEvent?.url ? "noopener noreferrer" : undefined}
+                className="mb-4"
+              />
+            </motion.div>
 
             {/* Main heading - reduced vertical spacing */}
             <div className="space-y-1 md:space-y-2">

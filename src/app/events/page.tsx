@@ -139,7 +139,7 @@ export default function EventsPage() {
       <section className="flex-1 w-full py-12 md:py-24">
         <WavyBackground className="max-w-4xl mx-auto">
           <div className="container px-0 md:px-6">
-            {nextEvent && (
+            {nextEvent ? (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -152,6 +152,19 @@ export default function EventsPage() {
                   announcement={getDaysUntil(nextEvent.date)}
                   target={nextEvent.url ? "_blank" : undefined}
                   rel={nextEvent.url ? "noopener noreferrer" : undefined}
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex justify-center mb-8"
+              >
+                <HeroPill 
+                  href="/events"
+                  label="Explore our events"
+                  announcement="📅 Explore upcoming events"
                 />
               </motion.div>
             )}

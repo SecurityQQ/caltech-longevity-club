@@ -76,23 +76,41 @@ export const events: Event[] = [
     location: "To be announced",
     isUpcoming: true,
   },
+  {
+    id: "event-6",
+    topic: "The Caltech Longevity Hackathon",
+    date: "2025-05-24",
+    time: "10:00 AM - May 25, 7:00 PM PDT",
+    location: "Dabney Hall, Pasadena, CA",
+    isUpcoming: true,
+    speakers: [{
+      name: "Caltech Longevity Club",
+      title: "Hackathon",
+      social: {
+        twitter: "https://x.com/caltechlongevity",
+      },
+      photo: "/events/logo-caltech.webp"
+    }],
+    url: "https://lu.ma/6ndeo6qb"
+  },
 ];
 
 export function getEvents() {
   const now = new Date();
-  now.setHours(0, 0, 0, 0); // Reset to start of day for more accurate comparison
+  now.setHours(0, 0, 0, 0);
 
   return {
     upcoming: events
       .filter(event => {
-        if (event.isUpcoming) return true; // Use isUpcoming flag directly
-        if (!event.date) return true; // TBA events are considered upcoming
-        const eventDate = new Date(event.date);
-        eventDate.setHours(0, 0, 0, 0); // Reset to start of day
-        return eventDate >= now;
+        if (event.date) {
+          const eventDate = new Date(event.date);
+          eventDate.setHours(0, 0, 0, 0);
+          if (eventDate < now) return false;
+        }
+        return event.isUpcoming || !event.date;
       })
       .sort((a, b) => {
-        if (!a.date) return 1;  // null dates go last
+        if (!a.date) return 1;
         if (!b.date) return -1;
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       }),
