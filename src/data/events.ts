@@ -15,7 +15,6 @@ export const events: Event[] = [
     date: "2025-02-27",
     time: "4:30 PM",
     location: "Dabney Hall Lounge",
-    isUpcoming: false,
     url: "https://lu.ma/ebvvob6v"
   },
   {
@@ -32,7 +31,6 @@ export const events: Event[] = [
     date: "2025-03-08",
     time: "5:00 PM",
     location: "Dabney Hall Lounge",
-    isUpcoming: false,
   },
   {
     id: "event-3",
@@ -41,48 +39,44 @@ export const events: Event[] = [
     date: "2025-03-13",
     time: "4:30 PM",
     location: "Dabney Hall Lounge",
-    isUpcoming: true,
   },
-  {
-    id: "event-4",
-    speakers: [{
-      name: "Anastasia Chemeritskaya",
-      title: "Longevity Concierge Clinician, OB-GYN, Founder & CEO",
-      social: {
-        linkedin: "https://www.linkedin.com/in/anastasia-chemeritskaya-md-mha/",
-      },
-      photo: "/events/Anastasia Chemeritskaya.jpeg",
-    }],
-    topic: "Female Reproductive Longevity",
-    date: null,
-    time: "To be announced",
-    location: "To be announced",
-    isUpcoming: true,
-  },
-  {
-    id: "event-5",
-    speakers: [{
-      name: "Sebastian A. Brunemeier",
-      title: "Co-founder & General Partner Healthspan Capital, CEO & Founder ImmuneAGE Bio",
-      social: {
-        linkedin: "https://www.linkedin.com/in/sebastianlongbio/",
-        twitter: "https://x.com/sebastian_gero"
-      },
-      photo: "/events/sebastian.jpeg",
-    }],
-    topic: "Immunity Aging",
-    date: null,
-    time: "To be announced",
-    location: "To be announced",
-    isUpcoming: true,
-  },
+  // {
+  //   id: "event-4",
+  //   speakers: [{
+  //     name: "Anastasia Chemeritskaya",
+  //     title: "Longevity Concierge Clinician, OB-GYN, Founder & CEO",
+  //     social: {
+  //       linkedin: "https://www.linkedin.com/in/anastasia-chemeritskaya-md-mha/",
+  //     },
+  //     photo: "/events/Anastasia Chemeritskaya.jpeg",
+  //   }],
+  //   topic: "Female Reproductive Longevity",
+  //   date: null,
+  //   time: "To be announced",
+  //   location: "To be announced",
+  // },
+  // {
+  //   id: "event-5",
+  //   speakers: [{
+  //     name: "Sebastian A. Brunemeier",
+  //     title: "Co-founder & General Partner Healthspan Capital, CEO & Founder ImmuneAGE Bio",
+  //     social: {
+  //       linkedin: "https://www.linkedin.com/in/sebastianlongbio/",
+  //       twitter: "https://x.com/sebastian_gero"
+  //     },
+  //     photo: "/events/sebastian.jpeg",
+  //   }],
+  //   topic: "Immunity Aging",
+  //   date: null,
+  //   time: "To be announced",
+  //   location: "To be announced",
+  // },
   {
     id: "event-6",
     topic: "The Caltech Longevity Hackathon",
     date: "2025-05-24",
     time: "10:00 AM - May 25, 7:00 PM PDT",
     location: "Dabney Hall, Pasadena, CA",
-    isUpcoming: true,
     speakers: [{
       name: "Caltech Longevity Club",
       title: "Hackathon",
@@ -93,6 +87,24 @@ export const events: Event[] = [
     }],
     url: "https://lu.ma/6ndeo6qb"
   },
+
+  {
+    id: "event-7",
+    topic: "Live Case Study: Longevity Meets Performance",
+    date: "2025-04-03",
+    time: "4:30 PM – 5:30 PM",
+    location: "Dabney Hall Lounge",
+    speakers: [],
+  },
+  {
+    id: "event-8",
+    topic: "Caltech Club Fair",
+    date: "2025-04-13",
+    time: "TBA",
+    location: "TBA",
+    speakers: []
+  }
+  
 ];
 
 export function getEvents() {
@@ -102,12 +114,10 @@ export function getEvents() {
   return {
     upcoming: events
       .filter(event => {
-        if (event.date) {
-          const eventDate = new Date(event.date);
-          eventDate.setHours(0, 0, 0, 0);
-          if (eventDate < now) return false;
-        }
-        return event.isUpcoming || !event.date;
+        if (!event.date) return true; // Events with no date will be shown as upcoming
+        const eventDate = new Date(event.date);
+        eventDate.setHours(0, 0, 0, 0);
+        return eventDate >= now;
       })
       .sort((a, b) => {
         if (!a.date) return 1;
@@ -116,10 +126,9 @@ export function getEvents() {
       }),
     past: events
       .filter(event => {
-        if (event.isUpcoming) return false; // Use isUpcoming flag directly
-        if (!event.date) return false;
+        if (!event.date) return false; // Events with no date will not show as past
         const eventDate = new Date(event.date);
-        eventDate.setHours(0, 0, 0, 0); // Reset to start of day
+        eventDate.setHours(0, 0, 0, 0);
         return eventDate < now;
       })
       .sort((a, b) => {
