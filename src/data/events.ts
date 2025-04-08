@@ -56,7 +56,14 @@ export const events: Event[] = [
     speakers: [],
     photo: "/events/career fair.jpg"
   },
-  // Past events
+  {
+    id: "event-7",
+    topic: "Live Case Study: Longevity Meets Performance",
+    date: "2025-04-03",
+    time: "4:30 PM – 5:30 PM",
+    location: "Dabney Hall Lounge",
+    speakers: [],
+  },
   {
     id: "case-study-1",
     speakers: [],
@@ -64,6 +71,39 @@ export const events: Event[] = [
     date: "2025-03-13",
     time: "4:30 PM",
     location: "Dabney Hall Lounge",
+    isPast: true
+  },
+  {
+    id: "event-2-old", 
+    speakers: [{
+      name: "Matt Scholz",
+      title: "CEO of Oisin Biotechnologies, 15+ years biotech executive experience",
+      social: {
+        linkedin: "https://www.linkedin.com/in/matthewscholz/",
+      },
+      photo: "/events/Matt Scholz.jpg",
+    }],
+    topic: "B cell therapy",
+    date: "2025-03-08",
+    time: "5:00 PM",
+    location: "Dabney Hall Lounge",
+    isPast: true
+  },
+  {
+    id: "event-1",
+    speakers: [{
+      name: "Ryan Cabeen",
+      title: "CTO Blueprint Bryan Johnson",
+      social: {
+        linkedin: "https://www.linkedin.com/in/cabeen/",
+      },
+      photo: "/events/Ryan Cabeen.png",
+    }],
+    topic: "Grand Opening Event: AI, Biotech & Longevity",
+    date: "2025-02-27",
+    time: "4:30 PM",
+    location: "Dabney Hall Lounge",
+    url: "https://lu.ma/ebvvob6v",
     isPast: true
   }
 ];

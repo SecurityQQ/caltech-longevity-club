@@ -39,7 +39,7 @@ function EventCard({ event }: { event: Event }) {
                     <p className="text-xs sm:text-base text-muted-foreground mb-2 sm:mb-4 line-clamp-2">{speaker.title}</p>
                     
                     <div className="flex gap-2 sm:gap-4">
-                      {speaker.social.linkedin && (
+                      {speaker.social?.linkedin && (
                         <Link 
                           href={speaker.social.linkedin} 
                           className="text-muted-foreground hover:text-primary"
@@ -49,7 +49,7 @@ function EventCard({ event }: { event: Event }) {
                           <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                         </Link>
                       )}
-                      {speaker.social.twitter && (
+                      {speaker.social?.twitter && (
                         <Link 
                           href={speaker.social.twitter} 
                           className="text-muted-foreground hover:text-primary"
@@ -59,7 +59,7 @@ function EventCard({ event }: { event: Event }) {
                           <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
                         </Link>
                       )}
-                      {speaker.social.github && (
+                      {speaker.social?.github && (
                         <Link 
                           href={speaker.social.github} 
                           className="text-muted-foreground hover:text-primary"
