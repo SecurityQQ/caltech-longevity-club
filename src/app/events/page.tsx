@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Linkedin, X, GithubIcon } from "lucide-react";
@@ -8,9 +9,8 @@ import Link from "next/link";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { NavBarDemo } from "@/components/NavBarDemo";
 import { Footer } from "@/components/Footer";
-import { events } from "@/data/events";
+import { events, getEvents } from "@/data/events";
 import { Event } from "@/types/events";
-import { getEvents } from "@/data/events";
 import { HeroPill } from "@/components/ui/hero-pill";
 import { Button } from "@/components/ui/button";
 
@@ -39,11 +39,12 @@ function EventCard({ event }: { event: Event }) {
           <div className="w-full md:w-1/3">
             <div className="aspect-square rounded-lg overflow-hidden">
               <Image
-                src={event.speakers[0]?.photo || DEFAULT_SPEAKER_IMAGE}
+                src={event.id === "club-fair" ? "/events/career%20fair.jpg" : (event.speakers[0]?.photo || DEFAULT_SPEAKER_IMAGE)}
                 alt={event.speakers[0]?.name || event.topic}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full"
+                onError={(e) => console.error("Image failed to load:", e)}
               />
             </div>
           </div>
@@ -56,7 +57,7 @@ function EventCard({ event }: { event: Event }) {
                     <p className="text-muted-foreground mb-4">{speaker.title}</p>
                     
                     <div className="flex gap-4">
-                      {speaker.social.linkedin && (
+                      {speaker.social?.linkedin && (
                         <Link 
                           href={speaker.social.linkedin} 
                           className="text-muted-foreground hover:text-primary"
@@ -66,7 +67,7 @@ function EventCard({ event }: { event: Event }) {
                           <Linkedin className="w-5 h-5" />
                         </Link>
                       )}
-                      {speaker.social.twitter && (
+                      {speaker.social?.twitter && (
                         <Link 
                           href={speaker.social.twitter} 
                           className="text-muted-foreground hover:text-primary"
@@ -76,7 +77,7 @@ function EventCard({ event }: { event: Event }) {
                           <X className="w-5 h-5" />
                         </Link>
                       )}
-                      {speaker.social.github && (
+                      {speaker.social?.github && (
                         <Link 
                           href={speaker.social.github} 
                           className="text-muted-foreground hover:text-primary"
@@ -131,45 +132,36 @@ function EventCard({ event }: { event: Event }) {
 }
 
 export default function EventsPage() {
-  const { upcoming: upcomingEvents, past: pastEvents } = getEvents();
-  const nextEvent = upcomingEvents[0];
+  const { featured: featuredEvents, upcoming: upcomingEvents, past: pastEvents } = getEvents();
 
   return (
     <main className="flex min-h-screen flex-col">
       <section className="flex-1 w-full py-12 md:py-24">
         <WavyBackground className="max-w-4xl mx-auto">
           <div className="container px-0 md:px-6">
-            {nextEvent ? (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex justify-center mb-8"
-              >
-                <HeroPill 
-                  href={nextEvent.url || `#event-${nextEvent.id}`}
-                  label={nextEvent.topic}
-                  announcement={getDaysUntil(nextEvent.date)}
-                  target={nextEvent.url ? "_blank" : undefined}
-                  rel={nextEvent.url ? "noopener noreferrer" : undefined}
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex justify-center mb-8"
-              >
-                <HeroPill 
-                  href="/events"
-                  label="Explore our events"
-                  announcement="📅 Explore upcoming events"
-                />
-              </motion.div>
+            {featuredEvents.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-orange-500 to-orange-300 bg-clip-text text-transparent">
+                  Featured Event
+                </h2>
+                <div className="space-y-6">
+                  {featuredEvents.map((event, index) => (
+                    <motion.div
+                      key={event.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="transform hover:scale-105 transition-transform duration-200"
+                    >
+                      <EventCard event={event} />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             )}
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col items-center gap-4 text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -20,12 +20,13 @@ function EventCard({ event }: { event: Event }) {
           <div className="w-12 h-12 sm:w-full sm:h-auto sm:mx-0 sm:max-w-[200px] flex-shrink-0">
             <div className="aspect-square rounded-lg overflow-hidden">
               <Image
-                src={event.speakers[0]?.photo || DEFAULT_SPEAKER_IMAGE}
+                src={event.id === "club-fair" ? "/events/career%20fair.jpg" : (event.speakers[0]?.photo || DEFAULT_SPEAKER_IMAGE)}
                 alt={event.speakers[0]?.name || event.topic}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full"
                 priority
+                onError={(e) => console.error("Image failed to load:", e)}
               />
             </div>
           </div>
