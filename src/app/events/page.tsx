@@ -106,7 +106,7 @@ function EventCard({ event }: { event: Event }) {
               <span>{event.location}</span>
             </div>
 
-            {event.url && (
+            {event.url && !event.isPast && event.date && new Date(event.date) > new Date() && (
               <Button
                 asChild
                 className="mt-4 bg-[hsl(var(--orange-bright))] hover:bg-[hsl(var(--orange-vivid))] text-white 
