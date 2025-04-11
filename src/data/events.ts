@@ -32,7 +32,7 @@ export const events: Event[] = [
     date: "2025-05-08",
     time: "5:00 PM",
     location: "Dabney Hall Lounge",
-    url: "https://lu.ma/mattscholz"
+    url: "https://lu.ma/cicl1io3"
   },
   {
     id: "functional-training",
@@ -46,6 +46,7 @@ export const events: Event[] = [
     date: "2025-04-17",
     time: "4:00 PM",
     location: "Beckman Lawn",
+    url: "https://lu.ma/1lubu8v0"
   },
   {
     id: "club-fair",
@@ -70,22 +71,6 @@ export const events: Event[] = [
     topic: "Case Study",
     date: "2025-03-13",
     time: "4:30 PM",
-    location: "Dabney Hall Lounge",
-    isPast: true
-  },
-  {
-    id: "event-2-old", 
-    speakers: [{
-      name: "Matt Scholz",
-      title: "CEO of Oisin Biotechnologies, 15+ years biotech executive experience",
-      social: {
-        linkedin: "https://www.linkedin.com/in/matthewscholz/",
-      },
-      photo: "/events/Matt Scholz.jpg",
-    }],
-    topic: "B cell therapy",
-    date: "2025-03-08",
-    time: "5:00 PM",
     location: "Dabney Hall Lounge",
     isPast: true
   },
