@@ -218,7 +218,7 @@ export function HeroSection() {
               <div className="flex justify-center items-center w-full">
                 <LogoCarousel 
                   logos={allLogos}
-                  columnCount={4}
+                  columnCount={Math.min(4, allLogos.length)}
                 />
               </div>
             </motion.div>

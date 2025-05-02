@@ -31,21 +31,67 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 }
 
 const distributeLogos = (allLogos: Logo[], columnCount: number): Logo[][] => {
-  const shuffled = shuffleArray(allLogos)
-  const columns: Logo[][] = Array.from({ length: columnCount }, () => [])
+  // If we don't have enough unique logos for all columns, duplicate some logos
+  const requiredLogos = Math.max(columnCount, allLogos.length);
+  let extendedLogos = [...allLogos];
+  
+  while (extendedLogos.length < requiredLogos) {
+    extendedLogos = [...extendedLogos, ...allLogos];
+  }
+  
+  const shuffled = shuffleArray(extendedLogos);
+  const columns: Logo[][] = Array.from({ length: columnCount }, () => []);
 
-  shuffled.forEach((logo, index) => {
-    columns[index % columnCount].push(logo)
-  })
-
-  const maxLength = Math.max(...columns.map((col) => col.length))
-  columns.forEach((col) => {
-    while (col.length < maxLength) {
-      col.push(shuffled[Math.floor(Math.random() * shuffled.length)])
+  // First assign unique initial logos to each column to prevent duplicates
+  const uniqueInitialLogos = [...allLogos];
+  for (let i = 0; i < columnCount; i++) {
+    if (uniqueInitialLogos.length > 0) {
+      // Take a random logo from unique logos
+      const randomIndex = Math.floor(Math.random() * uniqueInitialLogos.length);
+      const logo = uniqueInitialLogos.splice(randomIndex, 1)[0];
+      columns[i].push(logo);
     }
-  })
+  }
 
-  return columns
+  // For each column, build a sequence of logos where adjacent logos are different
+  const remainingLogos = shuffleArray(shuffled);
+  
+  // Helper function to find a logo that's different from the last one in the column
+  const findDifferentLogo = (column: Logo[], pool: Logo[]): Logo | null => {
+    if (column.length === 0 || pool.length === 0) return null;
+    
+    const lastLogo = column[column.length - 1];
+    for (let i = 0; i < pool.length; i++) {
+      if (pool[i].id !== lastLogo.id) {
+        return pool.splice(i, 1)[0];
+      }
+    }
+    return null;
+  };
+
+  // Determine maximum number of logos per column
+  const maxLength = Math.ceil(allLogos.length / columnCount) + 1;
+
+  // Fill columns with different logos
+  for (let i = 0; i < columnCount; i++) {
+    while (columns[i].length < maxLength) {
+      // Try to find a logo different from the last one
+      let nextLogo = findDifferentLogo(columns[i], remainingLogos);
+      
+      // If we can't find a different logo, reshuffle and try again
+      if (!nextLogo) {
+        // Reset remaining logos with new shuffle excluding those currently showing
+        remainingLogos.push(...shuffleArray(allLogos));
+        nextLogo = findDifferentLogo(columns[i], remainingLogos);
+      }
+      
+      if (nextLogo) {
+        columns[i].push(nextLogo);
+      }
+    }
+  }
+
+  return columns;
 }
 
 const LogoColumn: React.FC<LogoColumnProps> = React.memo(
@@ -112,10 +158,31 @@ interface LogoCarouselProps {
 export function LogoCarousel({ columnCount = 2, logos }: LogoCarouselProps) {
   const [logoSets, setLogoSets] = useState<Logo[][]>([])
   const [currentTime, setCurrentTime] = useState(0)
+  const [activeLogos, setActiveLogos] = useState<Set<number>>(new Set())
 
   const updateTime = useCallback(() => {
     setCurrentTime((prevTime) => prevTime + 100)
   }, [])
+
+  // Track which logos are currently visible
+  useEffect(() => {
+    if (logoSets.length === 0) return
+    
+    const cycleInterval = 2000
+    const currentActiveLogos = new Set<number>()
+    
+    logoSets.forEach((column, columnIndex) => {
+      const columnDelay = columnIndex * 200
+      const adjustedTime = (currentTime + columnDelay) % (cycleInterval * column.length)
+      const logoIndex = Math.floor(adjustedTime / cycleInterval)
+      
+      if (column[logoIndex]) {
+        currentActiveLogos.add(column[logoIndex].id)
+      }
+    })
+    
+    setActiveLogos(currentActiveLogos)
+  }, [currentTime, logoSets])
 
   useEffect(() => {
     const intervalId = setInterval(updateTime, 100)
