@@ -12,55 +12,13 @@ import { useRouter } from 'next/navigation';
 import { getEvents } from "@/data/events";
 import { HeroPill } from "@/components/ui/hero-pill";
 
-// Logo components for the carousel
-function CaltechLogo(props: { className?: string }) {
+// Single reusable logo component
+function SponsorLogo({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
-    <div className={props.className}>
+    <div className={className}>
       <Image
-        src="/sponsors/caltech.png"
-        alt="Caltech"
-        width={120}
-        height={40}
-        className="w-full h-full object-contain"
-      />
-    </div>
-  );
-}
-
-function BrogevityLogo(props: { className?: string }) {
-  return (
-    <div className={props.className}>
-      <Image
-        src="/sponsors/brogevity.png"
-        alt="Brogevity"
-        width={120}
-        height={40}
-        className="w-full h-full object-contain"
-      />
-    </div>
-  );
-}
-
-function BlueprintLogo(props: { className?: string }) {
-  return (
-    <div className={props.className}>
-      <Image
-        src="/sponsors/blueprint.png"
-        alt="Blueprint"
-        width={120}
-        height={40}
-        className="w-full h-full object-contain"
-      />
-    </div>
-  );
-}
-
-function VitaDAOLogo(props: { className?: string }) {
-  return (
-    <div className={props.className}>
-      <Image
-        src="/sponsors/vitadao.jpg"
-        alt="VitaDAO"
+        src={src}
+        alt={alt}
         width={120}
         height={40}
         className="w-full h-full object-contain"
@@ -70,12 +28,24 @@ function VitaDAOLogo(props: { className?: string }) {
 }
 
 // Logo configuration for the carousel
-const allLogos = [
-  { name: "Brogevity", id: 2, img: BrogevityLogo },
-  { name: "Caltech", id: 1, img: CaltechLogo },
-  // { name: "Blueprint", id: 3, img: BlueprintLogo },
-  // { name: "VitaDAO", id: 4, img: VitaDAOLogo },
+const sponsorLogos = [
+  { name: "Brogevity", src: "/sponsors/brogevity.png" },
+  { name: "Caltech", src: "/sponsors/caltech.png" },
+  { name: "Insilico", src: "/sponsors/insilico.png" },
+  { name: "LongevC", src: "/sponsors/longevc.svg" },
+  { name: "Longevity Pledge", src: "/sponsors/longevity-pledge.png" },
+  { name: "Retro", src: "/sponsors/retrobio.png.webp" },
+  { name: "True Diagnostics", src: "/sponsors/truediagnostics.png" },
 ];
+
+// Transform logos into the format expected by LogoCarousel
+const allLogos = sponsorLogos.map((logo, index) => ({
+  name: logo.name,
+  id: index + 1,
+  img: (props: { className?: string }) => (
+    <SponsorLogo src={logo.src} alt={logo.name} className={props.className} />
+  ),
+}));
 
 // Update the hero section text
 const heroText = {
@@ -134,7 +104,7 @@ export function HeroSection() {
           opacity: [0.1, 0.2, 0.1],
         }}
         transition={{
-          duration: 20,
+          duration: 40,
           repeat: Infinity,
           ease: "linear",
         }}
@@ -146,10 +116,9 @@ export function HeroSection() {
       <WavyBackground 
         className="max-w-4xl mx-auto h-full"
         containerClassName="h-full"
-        
         waveOpacity={0.3}
         blur={5}
-        speed="slow"
+        speed="slower"
         waveWidth={40}
       >
         <div className="container pt-4 px-4 md:px-6 relative z-10">
@@ -249,7 +218,7 @@ export function HeroSection() {
               <div className="flex justify-center items-center w-full">
                 <LogoCarousel 
                   logos={allLogos}
-                  columnCount={2}
+                  columnCount={4}
                 />
               </div>
             </motion.div>

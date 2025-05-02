@@ -22,7 +22,7 @@ export const WavyBackground = ({
   waveWidth?: number;
   backgroundFill?: string;
   blur?: number;
-  speed?: "slow" | "fast";
+  speed?: "slower" | "slow" | "fast";
   waveOpacity?: number;
   [key: string]: any;
 }) => {
@@ -47,6 +47,8 @@ export const WavyBackground = ({
 
   const getSpeed = () => {
     switch (speed) {
+      case "slower":
+        return 0.0001;
       case "slow":
         return 0.001;
       case "fast":
