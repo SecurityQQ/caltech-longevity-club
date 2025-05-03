@@ -33,7 +33,7 @@ const sponsorLogos = [
   { name: "Caltech", src: "/sponsors/caltech.png" },
   { name: "Insilico", src: "/sponsors/insilico.png" },
   { name: "LongevC", src: "/sponsors/longevc.svg" },
-  { name: "Longevity Pledge", src: "/sponsors/longevity-pledge.png" },
+  { name: "Longevity Pledge", src: "/sponsors/logo-white_Longevity.svg" },
   { name: "Retro", src: "/sponsors/retrobio.png.webp" },
   { name: "True Diagnostics", src: "/sponsors/truediagnostics.png" },
 ];
