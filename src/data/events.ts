@@ -14,9 +14,23 @@ export const events: Event[] = [
       social: {
         twitter: "https://x.com/caltechlongevity",
       },
-      photo: "/events/logo-caltech.webp"
+      photo: "/events/Caltech Longevity Hackathon.avif"
     }],
     url: "https://lu.ma/6ndeo6qb"
+  },
+  {
+    id: "longevity-science-bet",
+    topic: "Why Longevity Science Is a Good Bet",
+    date: "2025-05-30",
+    time: "4:30 PM",
+    location: "Dabney Hall",
+    speakers: [{
+      name: "Michael Ringel",
+      title: "JD PhD",
+      social: {},
+      photo: "/events/Caltech Longevity Club Meeting.avif"
+    }],
+    url: "https://lu.ma/b8puesdj"
   },
   {
     id: "event-2", 
@@ -28,7 +42,7 @@ export const events: Event[] = [
       },
       photo: "/events/Matt Scholz.jpg",
     }],
-    topic: "B cell therapy",
+    topic: "The frontiers of genetic medicine - from biohacking to the clinic",
     date: "2025-05-08",
     time: "5:00 PM",
     location: "Dabney Hall Lounge",
