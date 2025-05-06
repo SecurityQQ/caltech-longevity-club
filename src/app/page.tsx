@@ -100,7 +100,6 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Add your Google verification code
-    impact: '76812b70-77bd-4f09-a613-f8d941339a1d',
+    google: 'your-google-verification-code' // Add your Google verification code
   },
 };

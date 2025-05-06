@@ -29,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <meta name='impact-site-verification' content='76812b70-77bd-4f09-a613-f8d941339a1d' />
+      </head>
       <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
         <NavBarDemo />
         {children}
