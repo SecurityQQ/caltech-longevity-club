@@ -8,11 +8,11 @@ export const SkeletonOne = () => {
     <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-2xl">
       <AspectRatio ratio={16 / 9}>
         <Image
-          src="/feature-1/long-bio.png"
+          src="/feature-1/caltech-2.jpg"
           alt="Banner image"
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="50vw, 33vw"
           priority
         />
       </AspectRatio>
