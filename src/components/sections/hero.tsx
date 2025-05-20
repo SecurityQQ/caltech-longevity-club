@@ -11,6 +11,7 @@ import { WavyBackground } from "../ui/wavy-background";
 import { useRouter } from 'next/navigation';
 import { getEvents } from "@/data/events";
 import { HeroPill } from "@/components/ui/hero-pill";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Single reusable logo component
 function SponsorLogo({ src, alt, className }: { src: string; alt: string; className?: string }) {
@@ -36,6 +37,7 @@ const sponsorLogos = [
   { name: "Longevity Pledge", src: "/sponsors/logo-white_Longevity.svg" },
   { name: "Retro", src: "/sponsors/retrobio.png.webp" },
   { name: "True Diagnostics", src: "/sponsors/truediagnostics.png" },
+  { name: "VitaDAO", src: "/sponsors/vitadao.jpg" }
 ];
 
 // Transform logos into the format expected by LogoCarousel
@@ -88,6 +90,8 @@ export function HeroSection() {
     const featuresSection = document.getElementById('features');
     featuresSection?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden gradient-dark pb-4 md:pb-8 pt-8 md:pt-16">
@@ -218,7 +222,7 @@ export function HeroSection() {
               <div className="flex justify-center items-center w-full">
                 <LogoCarousel 
                   logos={allLogos}
-                  columnCount={Math.min(4, allLogos.length)}
+                  columnCount={isMobile ? 2 : Math.min(4, allLogos.length)}
                 />
               </div>
             </motion.div>
