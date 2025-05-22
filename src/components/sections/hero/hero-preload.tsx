@@ -26,27 +26,22 @@ export function HeroPreload() {
             <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4 text-center">
               Trusted by leading institutions
             </p>
-            <div className="flex justify-center items-center gap-4 w-full">
-              {[
-                { src: "/sponsors/caltech.png", alt: "Caltech" },
-                { src: "/sponsors/brogevity.png", alt: "Brogevity" },
-                { src: "/sponsors/blueprint.png", alt: "Blueprint" },
-                { src: "/sponsors/vitadao.jpg", alt: "VitaDAO" },
-              ].map((logo) => (
-                <div key={logo.alt} className="w-24 h-8 relative opacity-50">
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={120}
-                    height={40}
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-} 
+            <div className="flex justify-center items-center gap-4 w-full flex-wrap">
+  {[
+    { src: "/sponsors/caltech.png", alt: "Caltech" },
+    { src: "/sponsors/brogevity.png", alt: "Brogevity" },
+    { src: "/sponsors/blueprint.png", alt: "Blueprint" },
+    { src: "/sponsors/vitadao.jpg", alt: "VitaDAO" },
+    { src: "/sponsors/longgame.png", alt: "Longgame" }, // ✅ оставляем
+  ].map((logo) => (
+    <div key={logo.alt} className="w-32 h-12 relative border border-white/10">
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={100}
+        height={30}
+        className="object-contain"
+      />
+    </div>
+  ))}
+</div>
