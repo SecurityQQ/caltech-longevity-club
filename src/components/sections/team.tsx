@@ -40,14 +40,14 @@ const team = [
   //   //   email: "mailto:alex@example.com",
   //   },
   // },
-  // {
-  //   name: "Ania Freymond",
-  //   role: "Vice President",
-  //   image: "/team/ania-ai.webp",
-  //   links: {
-  //     linkedin: "https://www.linkedin.com/in/ania-freymond/"
-  //   },
-  // },
+  {
+    name: "William Wang",
+    role: "Vice President",
+    image: "/team/William-Wang.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/willwangofficial/"
+    },
+  },
   {
     name: "Emily Gu",
     role: "Treasurer",
