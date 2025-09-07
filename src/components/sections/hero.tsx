@@ -37,7 +37,8 @@ const sponsorLogos = [
   { name: "Longevity Pledge", src: "/sponsors/logo-white_Longevity.svg" },
   { name: "Retro", src: "/sponsors/retrobio.png.webp" },
   { name: "True Diagnostics", src: "/sponsors/truediagnostics.png" },
-  { name: "VitaDAO", src: "/sponsors/vitadao.jpg" }
+  { name: "VitaDAO", src: "/sponsors/vitadao.jpg" },
+  { name: "Longgame", src: "/sponsors/longgame_white.png" }
 ];
 
 // Transform logos into the format expected by LogoCarousel
