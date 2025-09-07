@@ -19,35 +19,35 @@ const team = [
       email: CONTACT_EMAIL,
     },
   },
-  {
-    name: "Anna Nazarova",
-    role: "Co-founder",
-    image: "/team/anna-ai.webp",
-    links: {
-    //   github: "#",
-      linkedin: "https://www.linkedin.com/in/anna-nazarova-a214b9122/",
-      email: "hello@brogevity.com",
-    },
-  },
-  {
-    name: "Alex Varga",
-    role: "Co-founder",
-    image: "/team/alex-ai.webp",
-    links: {
-      github: "https://github.com/securityqq",
-      linkedin: "https://www.linkedin.com/in/alexmsecurity/",
-      email: "https://alexvarga.xyz",
-    //   email: "mailto:alex@example.com",
-    },
-  },
-  {
-    name: "Ania Freymond",
-    role: "Vice President",
-    image: "/team/ania-ai.webp",
-    links: {
-      linkedin: "https://www.linkedin.com/in/ania-freymond/"
-    },
-  },
+  // {
+  //   name: "Anna Nazarova",
+  //   role: "Co-founder",
+  //   image: "/team/anna-ai.webp",
+  //   links: {
+  //   //   github: "#",
+  //     linkedin: "https://www.linkedin.com/in/anna-nazarova-a214b9122/",
+  //     email: "hello@brogevity.com",
+  //   },
+  // },
+  // {
+  //   name: "Alex Varga",
+  //   role: "Co-founder",
+  //   image: "/team/alex-ai.webp",
+  //   links: {
+  //     github: "https://github.com/securityqq",
+  //     linkedin: "https://www.linkedin.com/in/alexmsecurity/",
+  //     email: "https://alexvarga.xyz",
+  //   //   email: "mailto:alex@example.com",
+  //   },
+  // },
+  // {
+  //   name: "Ania Freymond",
+  //   role: "Vice President",
+  //   image: "/team/ania-ai.webp",
+  //   links: {
+  //     linkedin: "https://www.linkedin.com/in/ania-freymond/"
+  //   },
+  // },
   {
     name: "Emily Gu",
     role: "Treasurer",
@@ -55,16 +55,16 @@ const team = [
     links: {
       github: "https://github.com/emily5-1-2"
     },
-  },
-  {
-    name: "Elvira Koliadina",
-    role: "Events Organizer",
-    image: "/team/elvira-ai.webp",
-    links: {
-      linkedin: "https://www.linkedin.com/in/elvira-koliadina-0a0a1b232/",
-    //   email: "mailto:ralph@example.com",
-    },
-  },
+  }
+  // {
+  //   name: "Elvira Koliadina",
+  //   role: "Events Organizer",
+  //   image: "/team/elvira-ai.webp",
+  //   links: {
+  //     linkedin: "https://www.linkedin.com/in/elvira-koliadina-0a0a1b232/",
+  //   //   email: "mailto:ralph@example.com",
+  //   },
+  // },
 ];
 
 const advisors = [
@@ -80,7 +80,7 @@ const advisors = [
   },
   {
     name: "Prof. Evelyne Bischof, MD, PhD, MPH",
-    role: "Advisor",
+    role: "Consultant",
     image: "/team/evelyne.png",
     links: {
       linkedin: "https://www.linkedin.com/in/evelyne-yehudit-bischof/",
