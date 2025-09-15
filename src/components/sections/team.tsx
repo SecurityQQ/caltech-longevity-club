@@ -67,17 +67,7 @@ const team = [
   // },
 ];
 
-const advisors = [
-  {
-    name: "Ralph Adolphs, Ph.D.",
-    role: "Advisor",
-    image: "/team/ralph-ai.webp",
-    links: {
-      linkedin: "https://www.linkedin.com/in/ralph-adolphs-658a5417/",
-    },
-    summary: "Ralph Adolphs is a Caltech professor whose lab explores the neural underpinnings of social behavior, working with diverse clinical populations and collaborating across Caltech divisions.",
-    fullText: `Ralph Adolphs obtained his Ph.D. at Caltech in 1993, subsequently conducted postdoctoral work with Antonio Damasio in lesion patients, and has been on the faculty at Caltech since 2004. Ralph's laboratory includes undergraduate students, graduate students, postdoctoral fellows and staff that all work on elucidating the neural underpinnings of social behavior. The lab studies several clinical populations, including neurosurgical patients, individuals with rare brain lesions, and people with autism. Extensive use is also made of the adjacent Caltech Brain Imaging Center, and maintains close collaborations with other laboratories at Caltech in both the divisions of biology and the humanities and social sciences.`
-  },
+const consultants = [
   {
     name: "Prof. Evelyne Bischof, MD, PhD, MPH",
     role: "Consultant",
@@ -113,8 +103,22 @@ Swiss board certified as internal medicine specialist (FMH), trained in Europe, 
   },
 ];
 
+const advisors = [
+  {
+    name: "Ralph Adolphs, Ph.D.",
+    role: "Advisor",
+    image: "/team/ralph-ai.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/ralph-adolphs-658a5417/",
+    },
+    summary: "Ralph Adolphs is a Caltech professor whose lab explores the neural underpinnings of social behavior, working with diverse clinical populations and collaborating across Caltech divisions.",
+    fullText: `Ralph Adolphs obtained his Ph.D. at Caltech in 1993, subsequently conducted postdoctoral work with Antonio Damasio in lesion patients, and has been on the faculty at Caltech since 2004. Ralph's laboratory includes undergraduate students, graduate students, postdoctoral fellows and staff that all work on elucidating the neural underpinnings of social behavior. The lab studies several clinical populations, including neurosurgical patients, individuals with rare brain lesions, and people with autism. Extensive use is also made of the adjacent Caltech Brain Imaging Center, and maintains close collaborations with other laboratories at Caltech in both the divisions of biology and the humanities and social sciences.`
+  },
+];
+
 export function TeamSection() {
   const [expandedAdvisor, setExpandedAdvisor] = useState<number | null>(null);
+  const [expandedConsultant, setExpandedConsultant] = useState<number | null>(null);
 
   return (
     <section className="w-full py-12 md:py-24 bg-black/50">
@@ -250,6 +254,71 @@ export function TeamSection() {
                       className="mt-3 px-4 py-4 rounded-xl text-sm md:text-base whitespace-pre-line text-secondary-foreground bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm border border-muted-foreground/20 shadow-lg"
                     >
                       {advisor.fullText}
+                    </motion.div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <motion.div 
+          className="flex flex-col items-center gap-4 text-center mb-8 md:mb-12 mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl header-text-glow">
+            Consultants
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {consultants.map((consultant, idx) => (
+            <Card key={consultant.name} className="glass overflow-hidden">
+              <CardContent className="p-3 md:p-6 flex flex-col md:flex-row gap-4 items-start">
+                <div className="flex-shrink-0">
+                  <div className="aspect-square mb-3 md:mb-0 overflow-hidden rounded-full w-[100px] md:w-[120px] mx-auto">
+                    <Image
+                      src={consultant.image}
+                      alt={consultant.name}
+                      width={120}
+                      height={120}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg md:text-xl font-bold mb-1">{consultant.name}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-2">{consultant.role}</p>
+                  <div className="flex gap-3 md:gap-4 mb-2">
+                    {consultant.links && consultant.links.linkedin && (
+                      <Link 
+                        href={consultant.links.linkedin} 
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
+                      </Link>
+                    )}
+                  </div>
+                  <p className="text-sm mb-2">{consultant.summary}</p>
+                  <button
+                    className="text-xs text-primary underline focus:outline-none"
+                    onClick={() => setExpandedConsultant(expandedConsultant === idx ? null : idx)}
+                  >
+                    {expandedConsultant === idx ? "Hide full text" : "Read full text"}
+                  </button>
+                  {expandedConsultant === idx && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.4 }}
+                      className="mt-3 px-4 py-4 rounded-xl text-sm md:text-base whitespace-pre-line text-secondary-foreground bg-gradient-to-b from-black/60 to-transparent backdrop-blur-sm border border-muted-foreground/20 shadow-lg"
+                    >
+                      {consultant.fullText}
                     </motion.div>
                   )}
                 </div>
