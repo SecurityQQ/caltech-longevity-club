@@ -14,57 +14,37 @@ const team = [
     role: "President & Founder",
     image: "/team/andrea-ai.webp",
     links: {
-    //   github: "#",
       linkedin: "https://www.linkedin.com/in/andrea-olsen-0987654321/",
       email: CONTACT_EMAIL,
     },
   },
-  // {
-  //   name: "Anna Nazarova",
-  //   role: "Co-founder",
-  //   image: "/team/anna-ai.webp",
-  //   links: {
-  //   //   github: "#",
-  //     linkedin: "https://www.linkedin.com/in/anna-nazarova-a214b9122/",
-  //     email: "hello@brogevity.com",
-  //   },
-  // },
-  // {
-  //   name: "Alex Varga",
-  //   role: "Co-founder",
-  //   image: "/team/alex-ai.webp",
-  //   links: {
-  //     github: "https://github.com/securityqq",
-  //     linkedin: "https://www.linkedin.com/in/alexmsecurity/",
-  //     email: "https://alexvarga.xyz",
-  //   //   email: "mailto:alex@example.com",
-  //   },
-  // },
+
   {
     name: "William Wang",
     role: "Vice President",
     image: "/team/William-Wang.webp",
     links: {
-      linkedin: "https://www.linkedin.com/in/willwangofficial/"
+      linkedin: "https://www.linkedin.com/in/willwangofficial/",
     },
   },
+
+  {
+    name: "Duo Tao",
+    role: "Vice President",
+    image: "/team/duo-tao.webp",
+    links: {
+      linkedin: "https://www.linkedin.com/in/duotao",
+    },
+  },
+
   {
     name: "Emily Gu",
     role: "Treasurer",
     image: "/team/emily-gu-ai.webp",
     links: {
-      github: "https://github.com/emily5-1-2"
+      github: "https://github.com/emily5-1-2",
     },
-  }
-  // {
-  //   name: "Elvira Koliadina",
-  //   role: "Events Organizer",
-  //   image: "/team/elvira-ai.webp",
-  //   links: {
-  //     linkedin: "https://www.linkedin.com/in/elvira-koliadina-0a0a1b232/",
-  //   //   email: "mailto:ralph@example.com",
-  //   },
-  // },
+  },
 ];
 
 const consultants = [
