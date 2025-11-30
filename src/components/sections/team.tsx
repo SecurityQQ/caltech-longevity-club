@@ -30,7 +30,7 @@ const team = [
 
   {
     name: "Duo Tao",
-    role: "Vice President",
+    role: "Secretary",
     image: "/team/duo-tao.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/duotao",
