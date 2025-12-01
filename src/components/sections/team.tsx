@@ -15,7 +15,6 @@ const team = [
     image: "/team/andrea-ai.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/andrea-olsen-0987654321/",
-      email: CONTACT_EMAIL,
     },
   },
 
