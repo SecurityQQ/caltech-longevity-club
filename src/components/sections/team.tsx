@@ -15,7 +15,6 @@ const team = [
     image: "/team/andrea-ai.webp",
     links: {
       linkedin: "https://www.linkedin.com/in/andrea-olsen-0987654321/",
-      email: CONTACT_EMAIL,
     },
   },
 
@@ -94,6 +93,24 @@ const advisors = [
     summary: "Ralph Adolphs is a Caltech professor whose lab explores the neural underpinnings of social behavior, working with diverse clinical populations and collaborating across Caltech divisions.",
     fullText: `Ralph Adolphs obtained his Ph.D. at Caltech in 1993, subsequently conducted postdoctoral work with Antonio Damasio in lesion patients, and has been on the faculty at Caltech since 2004. Ralph's laboratory includes undergraduate students, graduate students, postdoctoral fellows and staff that all work on elucidating the neural underpinnings of social behavior. The lab studies several clinical populations, including neurosurgical patients, individuals with rare brain lesions, and people with autism. Extensive use is also made of the adjacent Caltech Brain Imaging Center, and maintains close collaborations with other laboratories at Caltech in both the divisions of biology and the humanities and social sciences.`
   },
+
+  {
+    name: "Antonio Rangel, Ph.D.",
+    role: "Advisor",
+    image: "/team/antonio-rangel-ai.webp",  //added
+    links: {
+      linkedin: "https://www.linkedin.com/in/antonio-r-930831a8/",  //added
+    },
+    summary: "Antonio Rangel is Bing Professor of Neuroscience, Behavioral Biology, and Economics at Caltech. He leads the Rangel Neuroeconomics Lab, studying how the brain computes and compares values to make decisions.",
+    fullText: `Antonio Rangel is the Bing Professor of Neuroscience, Behavioral Biology, and Economics at the California Institute of Technology and serves as Head Faculty in Residence. citeturn0view0turn0search1
+
+He earned his B.S. at Caltech (1993), M.S. and Ph.D. in Economics from Harvard University (1996, 1998) and was an assistant professor of Economics at Stanford University from 1998 to 2006 before joining Caltech. citeturn0view0turn0search6
+
+Rangel’s research investigates the computational and neurobiological basis of human decision-making. Using methods from neuroscience, economics, psychology, and computer science — including fMRI, EEG, TMS, single-unit recordings, eye-tracking, and computational modeling — his lab studies how the brain assigns value to options and compares them when making choices, from simple (e.g., choosing between an apple and an orange) to complex decisions involving self-control or altruism. citeturn0view0turn0search3
+
+He has received numerous honors, including the 2019 NOMIS Distinguished Scientist Award and being named Fellow of the Association for Psychological Science (2018). He previously served as President of the Society for Neuroeconomics (2009-2010) and has held a CAREER Award from the National Science Foundation. citeturn0view0turn0search15turn0search6` ,
+  },
+  
 ];
 
 export function TeamSection() {

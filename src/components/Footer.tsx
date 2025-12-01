@@ -13,6 +13,15 @@ export function Footer() {
             {CONTACT_EMAIL}
           </Link>
           <span className="text-muted-foreground hidden sm:block">•</span>
+          <Link
+            href="https://www.linkedin.com/company/caltech-longevity-club/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-muted-foreground/80 transition-colors"
+          >
+            LinkedIn
+          </Link>
+          <span className="text-muted-foreground hidden sm:block">•</span>
           <Link 
             href="https://x.com/cit_longevity"
             target="_blank"
@@ -34,4 +43,4 @@ export function Footer() {
       </div>
     </footer>
   );
-} 
+}
