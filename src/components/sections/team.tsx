@@ -98,9 +98,9 @@ const advisors = [
   {
     name: "Antonio Rangel, Ph.D.",
     role: "Advisor",
-    image: "/team/antonio-rangel-ai.webp",  // добавьте в public/team
+    image: "/team/antonio-rangel-ai.webp",  //added
     links: {
-      linkedin: "https://www.hss.caltech.edu/people/antonio-rangel",  // сайт Caltech
+      linkedin: "https://www.linkedin.com/in/antonio-r-930831a8/",  //added
     },
     summary: "Antonio Rangel is Bing Professor of Neuroscience, Behavioral Biology, and Economics at Caltech. He leads the Rangel Neuroeconomics Lab, studying how the brain computes and compares values to make decisions.",
     fullText: `Antonio Rangel is the Bing Professor of Neuroscience, Behavioral Biology, and Economics at the California Institute of Technology and serves as Head Faculty in Residence. citeturn0view0turn0search1
