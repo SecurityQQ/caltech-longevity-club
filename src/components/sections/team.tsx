@@ -7,8 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT_EMAIL } from "@/lib/constants";
 import { useState } from "react";
+import { TeamMember, AdvisorConsultant } from "@/types/team";
 
-const team = [
+const team: TeamMember[] = [
   {
     name: "Andrea Olsen",
     role: "President & Founder",
@@ -46,7 +47,7 @@ const team = [
   },
 ];
 
-const consultants = [
+const consultants: AdvisorConsultant[] = [
   {
     name: "Prof. Evelyne Bischof, MD, PhD, MPH",
     role: "Consultant",
@@ -82,7 +83,7 @@ Swiss board certified as internal medicine specialist (FMH), trained in Europe, 
   },
 ];
 
-const advisors = [
+const advisors: AdvisorConsultant[] = [
   {
     name: "Ralph Adolphs, Ph.D.",
     role: "Advisor",
