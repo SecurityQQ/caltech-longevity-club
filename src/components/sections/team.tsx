@@ -103,13 +103,13 @@ const advisors: AdvisorConsultant[] = [
       linkedin: "https://www.linkedin.com/in/antonio-r-930831a8/",  //added
     },
     summary: "Antonio Rangel is Bing Professor of Neuroscience, Behavioral Biology, and Economics at Caltech. He leads the Rangel Neuroeconomics Lab, studying how the brain computes and compares values to make decisions.",
-    fullText: `Antonio Rangel is the Bing Professor of Neuroscience, Behavioral Biology, and Economics at the California Institute of Technology and serves as Head Faculty in Residence. citeturn0view0turn0search1
+    fullText: `Antonio Rangel is the Bing Professor of Neuroscience, Behavioral Biology, and Economics at the California Institute of Technology and serves as Head Faculty in Residence.
 
-He earned his B.S. at Caltech (1993), M.S. and Ph.D. in Economics from Harvard University (1996, 1998) and was an assistant professor of Economics at Stanford University from 1998 to 2006 before joining Caltech. citeturn0view0turn0search6
+He earned his B.S. at Caltech (1993), M.S. and Ph.D. in Economics from Harvard University (1996, 1998) and was an assistant professor of Economics at Stanford University from 1998 to 2006 before joining Caltech.
 
-Rangel’s research investigates the computational and neurobiological basis of human decision-making. Using methods from neuroscience, economics, psychology, and computer science — including fMRI, EEG, TMS, single-unit recordings, eye-tracking, and computational modeling — his lab studies how the brain assigns value to options and compares them when making choices, from simple (e.g., choosing between an apple and an orange) to complex decisions involving self-control or altruism. citeturn0view0turn0search3
+Rangel’s research investigates the computational and neurobiological basis of human decision-making. Using methods from neuroscience, economics, psychology, and computer science — including fMRI, EEG, TMS, single-unit recordings, eye-tracking, and computational modeling — his lab studies how the brain assigns value to options and compares them when making choices, from simple (e.g., choosing between an apple and an orange) to complex decisions involving self-control or altruism.
 
-He has received numerous honors, including the 2019 NOMIS Distinguished Scientist Award and being named Fellow of the Association for Psychological Science (2018). He previously served as President of the Society for Neuroeconomics (2009-2010) and has held a CAREER Award from the National Science Foundation. citeturn0view0turn0search15turn0search6` ,
+He has received numerous honors, including the 2019 NOMIS Distinguished Scientist Award and being named Fellow of the Association for Psychological Science (2018). He previously served as President of the Society for Neuroeconomics (2009-2010) and has held a CAREER Award from the National Science Foundation.
   },
   
 ];
