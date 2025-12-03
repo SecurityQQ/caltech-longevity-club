@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { cn } from "@/lib/utils";
@@ -7,67 +7,68 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { SkeletonOne } from "./skeletons/skeleton-one";
 import { SkeletonTwo } from "./skeletons/skeleton-two";
 import { SkeletonThree } from "./skeletons/skeleton-three";
 import { SkeletonFour } from "./skeletons/skeleton-four";
 
 export function FeaturesSectionWithBentoGrid() {
-  const features = [
-    {
-      title: "Longevity in Action",
-      description:
-        "Explore longevity practices and technologies through theoretical research and analytical studies",
-      skeleton: <SkeletonOne />,
-      className:
-        "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
-    },
-    {
-      title: "Meetups & Guest Speakers",
-      description:
-        "Bi-weekly industry, executive, and science guest speakers leading discussions and offering resources",
-      skeleton: <SkeletonTwo />,
-      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
-    },
-    {
-      title: "Everything you need to start",
-      description:
-        "Build products, start new projects, and make your mark in longevity with access to resources and collaboration opportunities",
-      skeleton: <SkeletonThree />,
-      className:
-        "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r dark:border-neutral-800",
-    },
-    {
-      title: "Career Development",
-      description:
-        "Access exclusive opportunities, mentorship programs, and resources to build your career in longevity science & business",
-      skeleton: <SkeletonFour />,
-      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-none",
-    },
-  ];
-
   return (
-    <section id="features" className="w-full py-12 bg-black/50">
-      <div className="relative z-20 max-w-7xl mx-auto">
+    <section className="w-full py-24 bg-black">
+      <div className="container mx-auto px-6 lg:px-12">
+
         <div className="px-8">
-          <h4 className="text-4xl lg:text-6xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-bold header-text-glow mb-6">
+          <h4 className="text-4xl lg:text-6xl lg:leading-tight mx-auto text-center tracking-tight font-bold header-text-glow mb-6">
             What We Do
           </h4>
 
           <p className="text-base lg:text-lg max-w-2xl mx-auto text-center font-medium">
             Empowering the next generation of longevity researchers and entrepreneurs
           </p>
+
+          {/* voting new button */}
+          <div className="mt-6 flex justify-center">
+            <Link
+              href="https://atom-meteoroid-b7d.notion.site/2a533e38a36f8036b52bf30ad96dfcd2?pvs=105"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                className="gradient-button rounded-full px-6 md:px-8 py-7 sm:py-5 md:py-6 text-base md:text-lg w-full sm:w-auto"
+              >
+                What would you like to attend? Vote here!
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-16 xl:border rounded-md dark:border-neutral-800">
-            {features.map((feature) => (
-              <FeatureCard key={feature.title} className={feature.className}>
-                <FeatureTitle>{feature.title}</FeatureTitle>
-                <FeatureDescription>{feature.description}</FeatureDescription>
-                <div className="h-full w-full">{feature.skeleton}</div>
-              </FeatureCard>
-            ))}
+        <div className="relative mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <BentoCard
+              title="Workshops"
+              description="Hands-on learning sessions with leading researchers."
+              skeleton={<SkeletonOne />}
+            />
+
+            <BentoCard
+              title="Speaker Events"
+              description="Talks from pioneers in longevity, AI, and biotechnology."
+              skeleton={<SkeletonTwo />}
+            />
+
+            <BentoCard
+              title="Journal Clubs"
+              description="Deep dives into the latest research with peers."
+              skeleton={<SkeletonThree />}
+            />
+
+            <BentoCard
+              title="Community Events"
+              description="Build relationships with people shaping the future of health."
+              skeleton={<SkeletonFour />}
+            />
           </div>
         </div>
       </div>
@@ -75,77 +76,32 @@ export function FeaturesSectionWithBentoGrid() {
   );
 }
 
-const FeatureCard = ({
-  children,
-  className,
+function BentoCard({
+  title,
+  description,
+  skeleton,
 }: {
-  children?: React.ReactNode;
-  className?: string;
-}) => {
+  title: string;
+  description: string;
+  skeleton: React.ReactNode;
+}) {
   return (
-    <div className={cn(`p-4 sm:p-8 relative overflow-hidden`, className)}>
-      {children}
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group relative overflow-hidden rounded-3xl bg-black/40 border border-white/10 backdrop-blur-xl p-6 hover:bg-black/60 transition"
+    >
+      <div className="h-40 mb-4 rounded-xl overflow-hidden">
+        {skeleton}
+      </div>
+
+      <h3 className="text-xl font-semibold text-white mb-2">
+        {title}
+      </h3>
+
+      <p className="text-sm text-white/70">{description}</p>
+    </motion.div>
   );
-};
-
-const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-left gradient-text">
-      {children}
-    </h3>
-  );
-};
-
-const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    <p className="text-sm md:text-base text-left mt-2 mb-4 text-neutral-300 dark:text-neutral-300 font-medium leading-relaxed">
-      {children}
-    </p>
-  );
-};
-
-export const Globe = ({ className }: { className?: string }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    let phi = 0;
-
-    if (!canvasRef.current) return;
-
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.1, 0.8, 1],
-      glowColor: [1, 1, 1],
-      markers: [
-        { location: [37.7595, -122.4367], size: 0.03 },
-        { location: [40.7128, -74.006], size: 0.1 },
-      ],
-      onRender: (state) => {
-        state.phi = phi;
-        phi += 0.01;
-      },
-    });
-
-    return () => {
-      globe.destroy();
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
-      className={className}
-    />
-  );
-};
+}
