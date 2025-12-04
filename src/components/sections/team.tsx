@@ -107,9 +107,9 @@ const advisors: AdvisorConsultant[] = [
 
 He earned his B.S. at Caltech (1993), M.S. and Ph.D. in Economics from Harvard University (1996, 1998) and was an assistant professor of Economics at Stanford University from 1998 to 2006 before joining Caltech.
 
-Rangel’s research investigates the computational and neurobiological basis of human decision-making. Using methods from neuroscience, economics, psychology, and computer science — including fMRI, EEG, TMS, single-unit recordings, eye-tracking, and computational modeling — his lab studies how the brain assigns value to options and compares them when making choices, from simple (e.g., choosing between an apple and an orange) to complex decisions involving self-control or altruism.
+Rangel's research investigates the computational and neurobiological basis of human decision-making. Using methods from neuroscience, economics, psychology, and computer science — including fMRI, EEG, TMS, single-unit recordings, eye-tracking, and computational modeling — his lab studies how the brain assigns value to options and compares them when making choices, from simple (e.g., choosing between an apple and an orange) to complex decisions involving self-control or altruism.
 
-He has received numerous honors, including the 2019 NOMIS Distinguished Scientist Award and being named Fellow of the Association for Psychological Science (2018). He previously served as President of the Society for Neuroeconomics (2009-2010) and has held a CAREER Award from the National Science Foundation.
+He has received numerous honors, including the 2019 NOMIS Distinguished Scientist Award and being named Fellow of the Association for Psychological Science (2018). He previously served as President of the Society for Neuroeconomics (2009-2010) and has held a CAREER Award from the National Science Foundation.`
   },
   
 ];
