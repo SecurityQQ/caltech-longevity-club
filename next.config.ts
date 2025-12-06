@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'longevity-club-landing';
+const repoName = 'caltech-longevity-club';
 
 const nextConfig: NextConfig = {
   output: 'export',
