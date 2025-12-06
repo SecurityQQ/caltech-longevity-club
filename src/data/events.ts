@@ -1,23 +1,41 @@
-import { Event, EventSpeaker } from "@/types/events";
+import { Event, EventSpeaker } from "@/types/events"; 
 
 export const events: Event[] = [
+
   {
-    id: "hackathon",
-    topic: "The Caltech Longevity Hackathon",
-    date: "2025-05-24",
-    time: "10:00 AM - May 25, 7:00 PM PDT",
+    id: "hackaton-2026",
+    topic: "Caltech Longevity Innovation Hackaton",
+    date: "2026-05-23",
+    time: "9:00 AM – 8:00 PM",
     location: "Dabney Hall, Pasadena, CA",
     featured: true,
     speakers: [{
       name: "Caltech Longevity Club",
-      title: "Hackathon",
-      social: {
-        twitter: "https://x.com/caltechlongevity",
-      },
+      title: "Organizers",
+      social: { twitter: "https://x.com/caltechlongevity" },
       photo: "/events/Caltech Longevity Hackathon.avif"
     }],
-    url: "https://lu.ma/6ndeo6qb"
+    url: "https://lu.ma/caltech-longevity-hackaton"
   },
+
+
+  {
+    id: "jordan-schlain",
+    topic: "Fireside Chat with Dr. Jordan Schlain",
+    date: "2026-01-20",
+    time: "5:00 PM – 6:30 PM",
+    location: "Dabney Hall Lounge",
+    featured: false,
+    speakers: [{
+      name: "Dr. Jordan Schlain",
+      title: "Physician & Health Tech Entrepreneur",
+      social: { linkedin: "https://www.linkedin.com/in/jordanschlain/" },
+      photo: "/events/jordan-shlain.jpg"
+    }],
+    url: "https://lu.ma/jordan-schlain"
+  },
+
+
   {
     id: "longevity-science-bet",
     topic: "Why Longevity Science Is a Good Bet",
@@ -136,4 +154,4 @@ export function getEvents() {
         return new Date(b.date!).getTime() - new Date(a.date!).getTime();
       })
   };
-} 
+}
