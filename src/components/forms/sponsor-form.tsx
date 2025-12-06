@@ -20,28 +20,34 @@ export function SponsorForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/sponsor', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Create mailto link with form data
+      const subject = encodeURIComponent('Sponsor Inquiry - Caltech Longevity Club');
+      const body = encodeURIComponent(`Hello,
 
-      console.log(response);
+I am interested in sponsoring the Caltech Longevity Club.
 
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+
+Please contact me to discuss sponsorship opportunities.
+
+Best regards,
+${formData.name}`);
+      
+      const mailtoLink = `mailto:longevity@caltech.edu?subject=${subject}&body=${body}`;
+      
+      // Open mailto link
+      window.location.href = mailtoLink;
       
       // Reset form and show success
       setFormData({ name: "", email: "", company: "" });
       setSubmitted(true);
-      toast.success("Thank you for your interest! We'll be in touch soon.");
+      toast.success("Thank you for your interest! Your email client should open now.");
       setTimeout(() => setSubmitted(false), 3000);
     } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Failed to submit form. Please try again.");
+      console.error("Error opening email client:", error);
+      toast.error("Failed to open email client. Please contact longevity@caltech.edu directly.");
     } finally {
       setIsSubmitting(false);
     }

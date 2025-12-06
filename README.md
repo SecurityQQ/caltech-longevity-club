@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Caltech Longevity Club Landing Page
 
-## Getting Started
+A modern, responsive landing page for the Caltech Longevity Club, built with Next.js and configured for static deployment on GitHub Pages.
 
-First, run the development server:
+## 🚀 Features
 
+- **Static Site Generation**: Optimized for GitHub Pages deployment
+- **Responsive Design**: Works seamlessly across all devices
+- **Modern UI**: Built with Tailwind CSS and Radix UI components
+- **Contact Integration**: Sponsor inquiries redirect to email client
+- **Performance Optimized**: Static export with optimized assets
+
+## 📧 Sponsor Contact
+
+The sponsor inquiry form now redirects users to their default email client with a pre-filled message to `longevity@caltech.edu`. This eliminates the need for server-side email processing and works perfectly with static hosting.
+
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (recommended package manager)
+
+### Getting Started
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd longevity-club-landing
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This creates an optimized static export in the `out` directory.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 GitHub Pages Deployment
 
-## Deploy on Vercel
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Setup Instructions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Enable GitHub Pages**:
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Set source to "GitHub Actions"
+
+2. **Automatic Deployment**:
+   - The workflow (`.github/workflows/deploy.yml`) automatically triggers on pushes to the `main` branch
+   - The site will be built and deployed to `https://<username>.github.io/<repository-name>`
+
+3. **Manual Deployment** (if needed):
+   ```bash
+   pnpm build
+   # Upload the contents of the 'out' directory to your hosting provider
+   ```
+
+### Configuration Files
+
+- **`next.config.ts`**: Configured for static export with GitHub Pages optimization
+- **`.nojekyll`**: Prevents Jekyll processing on GitHub Pages
+- **`.github/workflows/deploy.yml`**: Automated deployment workflow
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js app directory
+├── components/          # Reusable React components
+│   ├── forms/          # Form components (sponsor inquiry)
+│   ├── sections/       # Page sections
+│   └── ui/             # UI components
+├── data/               # Static data files
+├── hooks/              # Custom React hooks
+└── lib/                # Utility functions
+```
+
+## 🎨 Customization
+
+- **Colors & Themes**: Modify `tailwind.config.ts`
+- **Content**: Update components in `src/components/sections/`
+- **Styling**: Global styles in `src/app/globals.css`
+
+## 📝 License
+
+This project is private and proprietary to Caltech Longevity Club.

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -59,7 +60,6 @@
     "react-hook-form": "^7.54.2",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.1",
-    "resend": "^4.1.2",
     "simplex-noise": "^4.0.3",
     "sonner": "^1.7.4",
     "svg-path-commander": "^2.1.8",
