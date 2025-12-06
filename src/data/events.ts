@@ -1,7 +1,6 @@
-import { Event, EventSpeaker } from "@/types/events"; 
+import type { Event } from "@/types/events";
 
 export const events: Event[] = [
-
   {
     id: "hackaton-2026",
     topic: "Caltech Longevity Innovation Hackaton",
@@ -18,23 +17,24 @@ export const events: Event[] = [
     url: "https://lu.ma/caltech-longevity-hackaton"
   },
 
-
   {
     id: "jordan-schlain",
-    topic: "Fireside Chat with Dr. Jordan Schlain",
-    date: "2026-01-20",
+    topic: "Remember the Future' Strategies for a Meaningful Life in Medicine",
+    date: "2026-01-28",
     time: "5:00 PM – 6:30 PM",
     location: "Dabney Hall Lounge",
     featured: false,
     speakers: [{
       name: "Dr. Jordan Schlain",
       title: "Physician & Health Tech Entrepreneur",
-      social: { linkedin: "https://www.linkedin.com/in/jordanschlain/" },
+      social: {
+        linkedin: "https://www.linkedin.com/in/jordanschlain/",
+        luma: "https://luma.com/mhzcyfkc",   
+      },
       photo: "/events/jordan-shlain.jpg"
     }],
-    url: "https://lu.ma/jordan-schlain"
+    url: "https://luma.com/mhzcyfkc"          
   },
-
 
   {
     id: "longevity-science-bet",
@@ -50,14 +50,13 @@ export const events: Event[] = [
     }],
     url: "https://lu.ma/b8puesdj"
   },
+
   {
-    id: "event-2", 
+    id: "event-2",
     speakers: [{
       name: "Matt Scholz",
-      title: "CEO of Oisin Biotechnologies, 15+ years biotech executive experience",
-      social: {
-        linkedin: "https://www.linkedin.com/in/matthewscholz/",
-      },
+      title: "CEO of Oisin Biotechnologies",
+      social: { linkedin: "https://www.linkedin.com/in/matthewscholz/" },
       photo: "/events/Matt Scholz.jpg",
     }],
     topic: "The frontiers of genetic medicine - from biohacking to the clinic",
@@ -66,6 +65,7 @@ export const events: Event[] = [
     location: "Dabney Hall Lounge",
     url: "https://lu.ma/cicl1io3"
   },
+
   {
     id: "functional-training",
     speakers: [{
@@ -80,6 +80,7 @@ export const events: Event[] = [
     location: "Beckman Lawn",
     url: "https://lu.ma/1lubu8v0"
   },
+
   {
     id: "club-fair",
     topic: "Caltech Club Fair",
@@ -89,6 +90,7 @@ export const events: Event[] = [
     speakers: [],
     photo: "/events/career fair.jpg"
   },
+
   {
     id: "event-7",
     topic: "Live Case Study: Longevity Meets Performance",
@@ -97,6 +99,7 @@ export const events: Event[] = [
     location: "Dabney Hall Lounge",
     speakers: [],
   },
+
   {
     id: "case-study-1",
     speakers: [],
@@ -106,14 +109,13 @@ export const events: Event[] = [
     location: "Dabney Hall Lounge",
     isPast: true
   },
+
   {
     id: "event-1",
     speakers: [{
       name: "Ryan Cabeen",
       title: "CTO Blueprint Bryan Johnson",
-      social: {
-        linkedin: "https://www.linkedin.com/in/cabeen/",
-      },
+      social: { linkedin: "https://www.linkedin.com/in/cabeen/" },
       photo: "/events/Ryan Cabeen.png",
     }],
     topic: "Grand Opening Event: AI, Biotech & Longevity",
@@ -132,26 +134,10 @@ export function getEvents() {
   return {
     featured: events.filter(event => event.featured),
     upcoming: events
-      .filter(event => {
-        if (!event.date || event.isPast) return false;
-        const eventDate = new Date(event.date);
-        eventDate.setHours(0, 0, 0, 0);
-        return eventDate >= now;
-      })
-      .sort((a, b) => {
-        if (!a.date) return 1;
-        if (!b.date) return -1;
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      }),
+      .filter(event => event.date && !event.isPast && new Date(event.date) >= now)
+      .sort((a, b) => new Date(a.date!).getTime() - new Date(b.date!).getTime()),
     past: events
-      .filter(event => {
-        if (!event.date) return false;
-        const eventDate = new Date(event.date);
-        eventDate.setHours(0, 0, 0, 0);
-        return eventDate < now || event.isPast;
-      })
-      .sort((a, b) => {
-        return new Date(b.date!).getTime() - new Date(a.date!).getTime();
-      })
+      .filter(event => event.date && (event.isPast || new Date(event.date) < now))
+      .sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime())
   };
 }
