@@ -62,7 +62,15 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 
 2. **Automatic Deployment**:
    - The workflow (`.github/workflows/deploy.yml`) automatically triggers on pushes to the `main` branch
-   - The site will be built and deployed to `https://<username>.github.io/<repository-name>`
+   - The site will be built and deployed to `https://<username>.github.io/longevity-club-landing`
+   - First deployment may take a few minutes to appear
+
+3. **Deploy Now**:
+   ```bash
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push origin main
+   ```
 
 3. **Manual Deployment** (if needed):
    ```bash
