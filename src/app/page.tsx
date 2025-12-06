@@ -52,7 +52,6 @@ export const metadata = {
     ],
   },
   manifest: '/favicons/manifest.json',
-  themeColor: '#ffffff',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -102,4 +101,8 @@ export const metadata = {
   verification: {
     google: 'your-google-verification-code' // Add your Google verification code
   },
+};
+
+export const viewport = {
+  themeColor: '#ffffff',
 };
