@@ -6,6 +6,7 @@ export interface EventSpeaker {
     linkedin?: string;
     twitter?: string;
     github?: string;
+    luma?: string;  
   };
 }
 
@@ -16,8 +17,8 @@ export interface Event {
   time: string;
   location: string;
   speakers: EventSpeaker[];
-  url?: string;
+  url?: string;    
   featured?: boolean;
   isPast?: boolean;
   photo?: string;
-} 
+}
