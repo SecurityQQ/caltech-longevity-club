@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" fill="none">
+  <!-- Diamond icon (simplified) -->
+  <g transform="translate(5, 5) rotate(45, 35, 35)">
+    <rect x="10" y="10" width="50" height="50" rx="4" fill="none" stroke="white" stroke-width="2.5"/>
+    <circle cx="35" cy="35" r="12" fill="none" stroke="white" stroke-width="1.5"/>
+    <circle cx="35" cy="25" r="2" fill="white"/>
+    <circle cx="35" cy="45" r="2" fill="white"/>
+    <circle cx="25" cy="35" r="2" fill="white"/>
+    <circle cx="45" cy="35" r="2" fill="white"/>
+    <line x1="35" y1="10" x2="35" y2="23" stroke="white" stroke-width="1.2"/>
+    <line x1="35" y1="47" x2="35" y2="60" stroke="white" stroke-width="1.2"/>
+    <line x1="10" y1="35" x2="23" y2="35" stroke="white" stroke-width="1.2"/>
+    <line x1="47" y1="35" x2="60" y2="35" stroke="white" stroke-width="1.2"/>
+  </g>
+  <!-- Text -->
+  <text x="110" y="38" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="white">Insilico</text>
+  <text x="110" y="66" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="white">Medicine</text>
+</svg>

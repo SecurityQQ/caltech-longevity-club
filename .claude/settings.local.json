@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /Users/andreaolsen/Downloads/caltech-longevity-club-main/src/components/sections/*.tsx)",
+      "Bash(export PATH=\"/usr/local/bin:$PATH\")",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:luma.com)",
+      "Bash(curl -L -o /Users/andreaolsen/Downloads/caltech-longevity-club-main/public/events/peter-diamandis.png \"https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=800/event-covers/te/51852988-a2a6-4b43-86b0-e418f20d7ca8.png\")",
+      "Bash(curl -L -o /Users/andreaolsen/Downloads/caltech-longevity-club-main/public/events/christof-koch.jpg \"https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=800,height=800/event-covers/oo/6e2397d4-ef8c-4df7-8ed4-c04f416c25b9.jpg\")",
+      "Bash(find /Users/andreaolsen/Downloads -maxdepth 2 \\\\\\(-name *.png -o -name *.jpg -o -name *.jpeg -o -name *.webp \\\\\\) -newer /Users/andreaolsen/Downloads/caltech-longevity-club-main/src/data/events.ts)",
+      "Bash(open http://localhost:3000/hackathon)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\")",
+      "Bash(npx next:*)",
+      "Bash(md5 /Users/andreaolsen/Downloads/caltech-longevity-club-main/public/team/ayush-ai.webp /Users/andreaolsen/Downloads/caltech-longevity-club-main/public/team/jp-ai.webp /Users/andreaolsen/Downloads/caltech-longevity-club-main/public/team/mahi-ai.webp)"
+    ]
+  }
+}
